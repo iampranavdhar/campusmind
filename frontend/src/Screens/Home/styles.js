@@ -1,0 +1,115 @@
+import { StyleSheet } from "react-native";
+import globals from "../../../globalStyles/globals";
+
+export const styles = StyleSheet.create({
+  topBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  topBarText: {
+    fontSize: 14,
+    fontFamily: globals.titleText.fontFamily,
+  },
+  userImage: {
+    width: 35,
+    height: 35,
+    borderRadius: 10,
+    resizeMode: "cover",
+    borderWidth: 0.5,
+    borderColor: "#8d8d8d",
+  },
+  welcomeMessage: {
+    paddingLeft: 20,
+    paddingVertical: 30,
+  },
+  welcomeMessageNameText: {
+    fontSize: 20,
+    fontFamily: `${globals.titleText.fontFamily}`,
+    color: "#000",
+    marginBottom: 5,
+  },
+  welcomeMessageGreetingText: {
+    fontSize: 15,
+    fontFamily: `${globals.normalText.fontFamily}`,
+    color: "#000",
+  },
+  schedule: {
+    width: "100%",
+    paddingHorizontal: 20,
+  },
+  scheduleTitle: {
+    fontSize: 12,
+    color: "#8E8E8E",
+    fontFamily: `${globals.titleText.fontFamily}`,
+  },
+  scheduleDate: {
+    fontSize: 16,
+    color: "#000",
+    fontFamily: `${globals.titleText.fontFamily}`,
+    marginBottom: 15,
+  },
+  classCards: {
+    width: "100%",
+  },
+  categories: {
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    marginTop: 20,
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  galleryBanner: {
+    width: "100%",
+    height: 200,
+    resizeMode: "cover",
+    borderRadius: 10,
+    marginBottom: 20,
+    marginTop: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  galleryBannerImage: {
+    width: "100%",
+    height: 200,
+    resizeMode: "cover",
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  galleryBannerText: {
+    fontSize: 20,
+    fontFamily: `${globals.titleText.fontFamily}`,
+    color: "#fff",
+    position: "absolute",
+    bottom: 10,
+    left: 40,
+    zIndex: 1,
+  },
+  galleryBannerOverlay: {
+    backgroundColor: "#000",
+    opacity: 0.3,
+    borderRadius: 10,
+    position: "absolute",
+    bottom: -10,
+    left: 20,
+    width: "100%",
+    height: 200,
+    resizeMode: "cover",
+    zIndex: 0,
+  },
+  galleryBannerIcon: {
+    width: 30,
+    height: 30,
+    resizeMode: "cover",
+    position: "absolute",
+    bottom: 10,
+    left: 110,
+    zIndex: 1,
+  },
+  emptyContainer: {
+    width: "100%",
+    height: 200,
+  },
+});

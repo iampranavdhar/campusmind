@@ -1,0 +1,7 @@
+campusmind_pemKey.pem
+/backend/.env
+/backend/.env.example
+/backend/node_modules
+/frontend/.env
+/frontend/.env.example
+/frontend/node_modules
