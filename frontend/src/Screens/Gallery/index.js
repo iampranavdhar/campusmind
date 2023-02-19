@@ -20,6 +20,7 @@ import {
 } from "../../redux/actions/userActions";
 import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
+import { CLOUDIFY_URL } from "@env";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -123,16 +124,13 @@ export default function Gallery() {
       formData.append("file", photo);
       formData.append("upload_preset", "stuniverse");
       formData.append("cloud_name", "dbkrowqox");
-      const res = await axios(
-        "https://api.cloudinary.com/v1_1/dbkrowqox/image/upload",
-        {
-          method: "POST",
-          data: formData,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios(CLOUDIFY_URL, {
+        method: "POST",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       if (res.status !== 200) {
         alert("Error uploading image");
         return;
@@ -140,7 +138,7 @@ export default function Gallery() {
       if (res.data?.secure_url) {
         await add_image_to_gallery(dispatch, {
           images: galleryData?.images
-            ? [...galleryData?.images, res.data.secure_url]
+            ? [...galleryData?.images, res?.data?.secure_url]
             : [res.data.secure_url],
           org_id: org_id,
         });

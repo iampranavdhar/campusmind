@@ -89,37 +89,37 @@ export default function Home({ navigation }) {
   const notificationListener = useRef();
   const responseListener = useRef();
 
-  // useEffect(() => {
-  //   registerForPushNotificationsAsync().then((token) => {
-  //     setExpoPushToken(token),
-  //       sendPushToken(token, user._id, user.org_id),
-  //       add_push_notification_token(dispatch, token);
-  //   });
+  useEffect(() => {
+    registerForPushNotificationsAsync().then((token) => {
+      setExpoPushToken(token),
+        sendPushToken(token, user?._id, user?.org_id),
+        add_push_notification_token(dispatch, token);
+    });
 
-  //   notificationListener.current =
-  //     Notifications.addNotificationReceivedListener((notification) => {
-  //       setNotification(notification);
-  //     });
+    notificationListener.current =
+      Notifications.addNotificationReceivedListener((notification) => {
+        setNotification(notification);
+      });
 
-  //   responseListener.current =
-  //     Notifications.addNotificationResponseReceivedListener((response) => {
-  //       console.log(response);
-  //     });
+    responseListener.current =
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        console.log(response);
+      });
 
-  //   return () => {
-  //     Notifications.removeNotificationSubscription(
-  //       notificationListener.current
-  //     );
-  //     Notifications.removeNotificationSubscription(responseListener.current);
-  //   };
-  // }, []);
+    return () => {
+      Notifications.removeNotificationSubscription(
+        notificationListener.current
+      );
+      Notifications.removeNotificationSubscription(responseListener?.current);
+    };
+  }, []);
 
   return (
     <SafeAreaView>
       <View style={styles.home}>
         <View style={styles.topBar}>
           <TouchableOpacity
-            onPress={() => !user?.isAdmin && navigation.navigate("Profile")}
+            onPress={() => !user?.isAdmin && navigation?.navigate("Profile")}
           >
             <Image
               style={styles.userImage}
@@ -129,10 +129,9 @@ export default function Home({ navigation }) {
                     ? "https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg"
                     : user?.profile_image,
               }}
-              onPress={() => navigation.navigate("Profile")}
+              onPress={() => navigation?.navigate("Profile")}
             />
           </TouchableOpacity>
-          {/* <Text style={styles.topBarText}>CampusMind</Text> */}
           {user?.isAdmin ? (
             <TouchableOpacity
               onPress={() => logout(dispatch, user, pushNotificationToken)}

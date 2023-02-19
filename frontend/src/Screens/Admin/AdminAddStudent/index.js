@@ -321,7 +321,6 @@ export default function AdminAddStudent() {
               />
             </View>
           </View>
-
           <View
             style={{
               flexDirection: "row",
@@ -357,7 +356,7 @@ export default function AdminAddStudent() {
                     width: width * 0.4,
                   }}
                 >
-                  {genderOptions.map((item, index) => (
+                  {genderOptions?.map((item, index) => (
                     <Picker.Item
                       label={item.label}
                       value={item.value}
@@ -570,7 +569,7 @@ export default function AdminAddStudent() {
                   width: width * 0.4,
                 }}
               >
-                {roleOptions.map((item, index) => (
+                {roleOptions?.map((item, index) => (
                   <Picker.Item
                     label={item.label}
                     value={item.value}
@@ -581,13 +580,6 @@ export default function AdminAddStudent() {
               </Picker>
             </View>
           </View>
-          {/* <TouchableOpacity
-            style={styles.uploadButton}
-            onPress={() => pickImageFromGallery()}
-          >
-            <Text style={styles.uploadButtonText}>IMAGE</Text>
-            <FontAwesome5 name="upload" size={18} color="#fff" />
-          </TouchableOpacity> */}
         </View>
       </ScrollView>
       <View style={styles.bottomButtons}>

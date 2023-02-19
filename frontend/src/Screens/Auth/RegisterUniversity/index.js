@@ -10,7 +10,6 @@ export default function RegisterUniversity() {
         alignItems: "center",
       }}
     >
-      {/* An Ui with contact details to contact the developer for registering their university */}
       <Text style={{ fontSize: 20, fontWeight: "bold" }}>
         Want to use it for your university?
       </Text>

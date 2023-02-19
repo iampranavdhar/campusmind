@@ -110,7 +110,7 @@ export default function Messages() {
             },
           }
         );
-        setChartCards(res.data);
+        setChartCards(res?.data);
       } catch (err) {
         console.log(err);
       }
@@ -138,7 +138,7 @@ export default function Messages() {
             },
           }
         );
-        setAllUsers(res.data);
+        setAllUsers(res?.data);
       } catch (err) {
         console.log(err);
       }
@@ -177,7 +177,7 @@ export default function Messages() {
           {searchChatName === "" ||
           searchChatName === null ||
           searchChatName === undefined ? (
-            chartCards.map((chatCard, index) => (
+            chartCards?.map((chatCard, index) => (
               <ChatCard
                 islastMessageSenderYou={true}
                 messageViewed={true}
@@ -194,20 +194,20 @@ export default function Messages() {
                 All Users
               </Text>
               {allUsers
-                .filter((chatCard) => {
+                ?.filter((chatCard) => {
                   if (
                     (chatCard?.user_full_name
                       ?.toLowerCase()
-                      .includes(searchChatName.toLowerCase()) ||
+                      ?.includes(searchChatName.toLowerCase()) ||
                       chatCard?.user_identity
                         ?.toLowerCase()
-                        .includes(searchChatName.toLowerCase())) &&
+                        ?.includes(searchChatName.toLowerCase())) &&
                     chatCard?._id !== user?._id
                   ) {
                     return chatCard;
                   }
                 })
-                .map((chatCard, index) => (
+                ?.map((chatCard, index) => (
                   <SearchResultChatCard chatCard={chatCard} key={index} />
                 ))}
             </View>

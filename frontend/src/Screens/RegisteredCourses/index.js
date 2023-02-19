@@ -74,10 +74,10 @@ export default function RegisteredCourses() {
   return (
     <View style={styles.registeredCourses}>
       <ScrollView vertical showsVerticalScrollIndicator={false}>
-        {acad.SemDetails.reverse().map((sem, index) => (
+        {acad?.SemDetails?.reverse()?.map((sem, index) => (
           <View key={index}>
-            <Text style={styles.semTitle}>{sem.Semester}</Text>
-            {sem.RegisteredCourses.map((course, index) => {
+            <Text style={styles.semTitle}>{sem?.Semester}</Text>
+            {sem?.RegisteredCourses?.map((course, index) => {
               return (
                 <View key={index} style={styles.courseCard}>
                   <View>
@@ -88,18 +88,18 @@ export default function RegisteredCourses() {
                       }}
                     >
                       <Text style={styles.courseCodeText}>
-                        {course.CourseCode}
+                        {course?.CourseCode}
                       </Text>
                       <Text style={styles.courseCodeText}>
-                        {course.CourseCredits} Credits
+                        {course?.CourseCredits} Credits
                       </Text>
                     </View>
                     <Text style={styles.courseTitleText}>
-                      {course.CourseTitle}
+                      {course?.CourseTitle}
                     </Text>
                   </View>
                   <Text style={styles.courseInstructorText}>
-                    By {course.CourseInstructor}
+                    By {course?.CourseInstructor}
                   </Text>
                 </View>
               );

@@ -54,10 +54,10 @@ export default function ClassCard({ classDetails }) {
       <View style={styles.classTimings}>
         <FontAwesome5 name="clock" size={18} color="#988F8F" solid />
         <Text style={styles.classTimingsText}>
-          {classDetails.start_time} - {classDetails.end_time}
+          {classDetails?.start_time} - {classDetails?.end_time}
         </Text>
       </View>
-      <Text style={styles.className}>{classDetails.class_name}</Text>
+      <Text style={styles.className}>{classDetails?.class_name}</Text>
       <View style={styles.classStatus}>
         {classDetails?.class_name === "Lunch Break" ? null : (
           <>

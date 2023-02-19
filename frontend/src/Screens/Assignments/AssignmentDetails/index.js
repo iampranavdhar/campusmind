@@ -31,18 +31,18 @@ export default function AssignmentDetails({ route }) {
             {assignment.subject_code} - {assignment.subject_id.course_title}
           </Text>
           <Text style={styles.assignmentTitle}>
-            {assignment.assignment_title}
+            {assignment?.assignment_title}
           </Text>
           <View style={styles.assignmentDues}>
             <Text style={styles.assignmentDueDate}>
               Due Date:{" "}
-              {`${moment(assignment.assignment_duedateandtime).format(
+              {`${moment(assignment?.assignment_duedateandtime).format(
                 "DD-MM-YYYY"
               )}`}
             </Text>
             <Text style={styles.assignmentDueTime}>
               Due Time:{" "}
-              {`${moment(assignment.assignment_duedateandtime).format(
+              {`${moment(assignment?.assignment_duedateandtime).format(
                 "hh:mm A"
               )}`}
             </Text>
@@ -57,14 +57,14 @@ export default function AssignmentDetails({ route }) {
           Instructions:
         </Text>
         <Text style={styles.assignmentDescription}>
-          {assignment.assignment_description}
+          {assignment?.assignment_description}
         </Text>
         <TouchableOpacity style={styles.uploadButton}>
           <Text style={styles.uploadButtonText}>UPLOAD</Text>
           <MaterialIcons name="file-upload" size={24} color="#0dc90a" />
         </TouchableOpacity>
-        {assignment.assignment_submissions.map((submission) => {
-          if (submission.user_id === user._id) {
+        {assignment?.assignment_submissions?.map((submission) => {
+          if (submission?.user_id === user?._id) {
             return (
               <View style={styles.submissionDetails}>
                 <Text style={styles.submissionDetailsText}>
@@ -83,8 +83,8 @@ export default function AssignmentDetails({ route }) {
             );
           }
         })}
-        {assignment.assignment_submissions.filter(
-          (submission) => submission.user_id === user._id
+        {assignment?.assignment_submissions.filter(
+          (submission) => submission?.user_id === user?._id
         ).length === 0 && (
           <TouchableOpacity
             style={styles.submitButton}

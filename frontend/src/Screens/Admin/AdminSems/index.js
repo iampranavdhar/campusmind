@@ -37,44 +37,27 @@ export default function AdminGraduationYears() {
     setBranches((prevBranches) => [
       ...prevBranches,
       {
-        branch_id: response.data._id,
-        branch_name: response.data.branch_name,
+        branch_id: response?.data._id,
+        branch_name: response?.data.branch_name,
       },
     ]);
   };
 
   useEffect(() => {
     if (allSemsData) {
-      const graduationYears = allSemsData.map((sem) => sem.graduation_year);
+      const graduationYears = allSemsData?.map((sem) => sem?.graduation_year);
       setGraduationYears([...new Set(graduationYears)]);
 
-      const branches = allSemsData.map((sem) => sem.branch_id);
+      const branches = allSemsData?.map((sem) => sem?.branch_id);
       const uniqueBranches = [...new Set(branches)];
 
       if (uniqueBranches) {
-        const branchDetails = uniqueBranches.map((branch) => {
+        const branchDetails = uniqueBranches?.map((branch) => {
           fetchBranchDetails(branch);
         });
       }
     }
   }, [allSemsData]);
-
-  selectedBranch &&
-    selectedGraduationYear &&
-    selectedSem &&
-    console.log(
-      allSemsData.map((sem) => {
-        if (
-          sem.graduation_year === selectedGraduationYear &&
-          sem.branch_id === selectedBranch &&
-          sem.sem_id === selectedSem
-        ) {
-          return sem.courses.map((course) => {
-            return <CourseCard course={course} />;
-          });
-        }
-      })
-    );
 
   return (
     <ScrollView
@@ -125,17 +108,17 @@ export default function AdminGraduationYears() {
               .filter(
                 (branch, index, self) =>
                   index ===
-                  self.findIndex((t) => t.branch_id === branch.branch_id)
+                  self.findIndex((t) => t?.branch_id === branch?.branch_id)
               )
               .map((branch, index) => (
                 <TouchableOpacity
                   key={index}
                   activeOpacity={0.8}
                   onPress={() => {
-                    setSelectedBranch(branch.branch_id);
+                    setSelectedBranch(branch?.branch_id);
                   }}
                 >
-                  <OptionCard optionCardTitle={branch.branch_name} />
+                  <OptionCard optionCardTitle={branch?.branch_name} />
                 </TouchableOpacity>
               ))}
           </View>
@@ -153,20 +136,20 @@ export default function AdminGraduationYears() {
           >
             Select Semester
           </Text>
-          {allSemsData.map((sem, index) => {
+          {allSemsData?.map((sem, index) => {
             if (
-              sem.graduation_year === selectedGraduationYear &&
-              sem.branch_id === selectedBranch
+              sem?.graduation_year === selectedGraduationYear &&
+              sem?.branch_id === selectedBranch
             ) {
               return (
                 <TouchableOpacity
                   key={index}
                   activeOpacity={0.8}
                   onPress={() => {
-                    setSelectedSem(sem.sem_no);
+                    setSelectedSem(sem?.sem_no);
                   }}
                 >
-                  <OptionCard optionCardTitle={sem.sem_no} />
+                  <OptionCard optionCardTitle={sem?.sem_no} />
                 </TouchableOpacity>
               );
             }
@@ -177,11 +160,11 @@ export default function AdminGraduationYears() {
         <View style={{ flex: 1 }}>
           {allSemsData.map((sem, index) => {
             if (
-              sem.graduation_year === selectedGraduationYear &&
-              sem.branch_id === selectedBranch &&
-              sem.sem_no === selectedSem
+              sem?.graduation_year === selectedGraduationYear &&
+              sem?.branch_id === selectedBranch &&
+              sem?.sem_no === selectedSem
             ) {
-              return sem.sem_courses.map((course, index) => (
+              return sem?.sem_courses?.map((course, index) => (
                 <CourseCard course={course} />
               ));
             }

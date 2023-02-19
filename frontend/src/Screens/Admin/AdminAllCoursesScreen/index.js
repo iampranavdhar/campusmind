@@ -142,40 +142,11 @@ export const CourseCard = ({ course }) => {
           >
             <MaterialIcons name="delete" size={24} color="white" />
           </TouchableOpacity>
-          {/* <TouchableOpacity
-            style={{
-              backgroundColor: "green",
-              padding: 5,
-              borderRadius: 10,
-            }}
-          >
-            <MaterialIcons name="edit" size={24} color="white" />
-          </TouchableOpacity> */}
         </View>
       </Animated.View>
     </TouchableOpacity>
   );
 };
-
-{
-  /* <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 5 }}>
-          {course.course_code}
-        </Text>
-        <TouchableOpacity>
-          <MaterialIcons name="more-vert" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      <Text style={{ fontSize: 16, fontWeight: "bold" }}>
-        {course.course_title}
-      </Text>
-      {showDetails && (
-        <Text style={{ fontSize: 16, marginTop: 10 }}>
-          {course.course_description}
-        </Text>
-      )}
-      <Text style={{ fontSize: 16 }}>{course.course_syllabus_pdf_link}</Text> */
-}
 
 export default function AdminAllCoursesScreen() {
   const dispatch = useDispatch();

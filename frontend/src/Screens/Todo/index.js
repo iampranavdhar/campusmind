@@ -194,7 +194,7 @@ export default function Todo() {
 
   const handleAddTodo = async () => {
     await add_todo_task(dispatch, {
-      category_id: selectedCategory._id,
+      category_id: selectedCategory?._id,
       task_title: taskName,
       task_description: taskDescription,
     });
@@ -212,7 +212,7 @@ export default function Todo() {
   }, [userData]);
 
   useEffect(() => {
-    setSelectedCategory(todoData?.categories.slice(0).reverse()[0]);
+    setSelectedCategory(todoData?.categories?.slice(0)?.reverse()[0]);
   }, []);
 
   return isLoading ? (
@@ -269,8 +269,8 @@ export default function Todo() {
         >
           {todoData?.categories
             ?.slice(0)
-            .reverse()
-            .map((category, index) => (
+            ?.reverse()
+            ?.map((category, index) => (
               <TouchableOpacity
                 activeOpacity={0.82}
                 onPress={() => setSelectedCategory(category)}
@@ -280,16 +280,16 @@ export default function Todo() {
                   height: height * 0.3,
                   marginLeft: index === 0 ? 5 : 0,
                   marginRight:
-                    index === todoData?.categories.length - 1 ? 40 : 0,
+                    index === todoData?.categories?.length - 1 ? 40 : 0,
                 }}
               >
                 <TodoCategoryCard
-                  categoryTitle={category.category_name}
-                  numberOfTasks={category.tasks.length}
+                  categoryTitle={category?.category_name}
+                  numberOfTasks={category?.tasks?.length}
                   numberOfCompletedTasks={
-                    category.tasks.filter((task) => task.is_done).length
+                    category?.tasks?.filter((task) => task?.is_done)?.length
                   }
-                  color={category.color}
+                  color={category?.color}
                 />
               </TouchableOpacity>
             ))}
@@ -318,7 +318,7 @@ export default function Todo() {
               (todoItem) =>
                 todoItem?.category_name === selectedCategory?.category_name
             )
-            .map((todoItem, index) => {
+            ?.map((todoItem, index) => {
               return (
                 <View key={index}>
                   {todoItem?.tasks
@@ -342,12 +342,12 @@ export default function Todo() {
               (todoItem) =>
                 todoItem?.category_name === selectedCategory?.category_name
             )
-            .map((todoItem, index) => {
+            ?.map((todoItem, index) => {
               return (
                 <View key={index}>
                   {todoItem?.tasks
-                    ?.filter((task) => task.is_done === true)
-                    .map((task, index) => {
+                    ?.filter((task) => task?.is_done === true)
+                    ?.map((task, index) => {
                       return (
                         <TodoTaskAccordion
                           key={index}

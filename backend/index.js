@@ -125,17 +125,16 @@ cron.schedule("*/30 * * * * *", async () => {
 
   for (let i = 0; i < days_notfications.length; i++) {
     const assignment = days_notfications[i];
-    const assignmentDueDate = new Date(assignment.assignment_duedateandtime);
+    const assignmentDueDate = new Date(assignment?.assignment_duedateandtime);
     const difference = assignmentDueDate - new Date();
     const hours = Math.floor(difference / (1000 * 60 * 60));
-    console.log(assignment.assignment_title, hours);
     if (hours <= 1) {
       if (
         await sendNotificationToAllUsersInClass({
           org_id: assignment?.org_id,
           section_id: assignment?.section_id,
           title: "Assignment Due",
-          body: `Assignment ${assignment.assignment_title} is due in 1 hour`,
+          body: `Assignment ${assignment?.assignment_title} is due in 1 hour`,
         })
       ) {
         console.log("Notification Sent");

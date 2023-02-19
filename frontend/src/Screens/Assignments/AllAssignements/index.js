@@ -90,25 +90,25 @@ export default function Assignments({ route }) {
           ?.filter((assignment) => {
             if (selectedStatus === "Pending") {
               return (
-                new Date(assignment.assignment_duedateandtime) > new Date() &&
-                assignment.assignment_submissions
-                  .map((submission) => submission.user_id)
+                new Date(assignment?.assignment_duedateandtime) > new Date() &&
+                assignment?.assignment_submissions
+                  .map((submission) => submission?.user_id)
                   .indexOf(user._id) === -1
               );
             } else if (selectedStatus === "Completed") {
               return (
-                new Date(assignment.assignment_duedateandtime) < new Date() ||
-                assignment.assignment_submissions
-                  .map((submission) => submission.user_id)
+                new Date(assignment?.assignment_duedateandtime) < new Date() ||
+                assignment?.assignment_submissions
+                  .map((submission) => submission?.user_id)
                   .indexOf(user._id) !== -1
               );
             }
           })
           .map((assignment, index) => (
             <AssignmentCard
-              subjectCode={assignment.subject_code}
-              assignmentTitle={assignment.assignment_title}
-              subjectCodeColor={assignment.color}
+              subjectCode={assignment?.subject_code}
+              assignmentTitle={assignment?.assignment_title}
+              subjectCodeColor={assignment?.color}
               assignmentDetails={assignment}
               key={index}
             />

@@ -96,7 +96,7 @@ export default function AdminAddEvent() {
     } else {
       try {
         await add_event(dispatch, {
-          org_id: userData.org_id,
+          org_id: userData?.org_id,
           event_title: eventTitle,
           event_description: eventDescription,
           event_dateandtime: date,
@@ -104,7 +104,7 @@ export default function AdminAddEvent() {
           event_venue: eventVenue,
           event_register_link: eventRegisterLink,
         });
-        await get_events(dispatch, userData.org_id);
+        await get_events(dispatch, userData?.org_id);
         setEventTitle("");
         setEventDescription("");
         setEventVenue("");

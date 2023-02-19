@@ -1,14 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import OptionCard from "../../Components/OptionCard";
-import ProgressCircle from "react-native-progress-circle";
 import { BarChart } from "react-native-gifted-charts";
-import {
-  ScrollView,
-  TouchableWithoutFeedback,
-} from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 import GPACard from "../../Components/GPACard";
 import { useNavigation } from "@react-navigation/native";
 
@@ -129,8 +124,8 @@ export default function MarksAndCgpa() {
               key={index}
               onPress={() =>
                 navigation.navigate("Sem Details", {
-                  semesterGPA: item.SemesterGPA,
-                  registeredCourses: item.RegisteredCourses,
+                  semesterGPA: item?.SemesterGPA,
+                  registeredCourses: item?.RegisteredCourses,
                 })
               }
             >

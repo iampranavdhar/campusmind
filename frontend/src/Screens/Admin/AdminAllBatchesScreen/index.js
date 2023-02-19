@@ -94,9 +94,9 @@ export default function AdminAllBatchesScreen() {
           {branchesData?.map((branch, index) => (
             <BranchCard
               key={index}
-              branchName={branch.branch_name}
-              sections={branch.sections}
-              branch_id={branch._id}
+              branchName={branch?.branch_name}
+              sections={branch?.sections}
+              branch_id={branch?._id}
             />
           ))}
         </View>

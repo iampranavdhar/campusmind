@@ -96,8 +96,8 @@ export default function AdminAddAssignment({ route, navigation }) {
 
   useEffect(() => {
     subjectCodes.map((subjectCode) => {
-      if (subjectCode.label === assignmentSubjectCode) {
-        setAssignmentSubjectCodeColor(subjectCode.color);
+      if (subjectCode?.label === assignmentSubjectCode) {
+        setAssignmentSubjectCodeColor(subjectCode?.color);
       }
     });
   }, [assignmentSubjectCode]);
@@ -113,7 +113,7 @@ export default function AdminAddAssignment({ route, navigation }) {
         alert("Please fill all the fields");
       } else {
         await add_assignment(dispatch, {
-          org_id: user.org_id,
+          org_id: user?.org_id,
           section_id: section_id,
           subject_code: assignmentSubjectCode,
           subject_id: assignmentSubjectId,
@@ -155,7 +155,7 @@ export default function AdminAddAssignment({ route, navigation }) {
               ref={pickerRef}
               selectedValue={assignmentSubjectId}
               onValueChange={(itemValue, itemIndex) => {
-                setAssignmentSubjectCode(subjectCodes[itemIndex].label);
+                setAssignmentSubjectCode(subjectCodes[itemIndex]?.label);
                 setAssignmentSubjectId(itemValue);
               }}
             >

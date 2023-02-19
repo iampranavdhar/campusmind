@@ -46,7 +46,6 @@ const MemberCard = ({ member }) => {
               {member.user_identity}
             </Text>
           </View>
-          {/* Two buttons Delete,Update */}
           <View style={styles.memberButtons}>
             <TouchableOpacity
               style={{

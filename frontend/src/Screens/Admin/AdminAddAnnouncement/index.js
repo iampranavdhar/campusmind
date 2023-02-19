@@ -67,7 +67,7 @@ export default function AdminAddAssignment() {
           announcement: announcement,
           color: color,
         });
-        await get_announcements(dispatch, userData.org_id);
+        await get_announcements(dispatch, userData?.org_id);
         navigation.navigate("Announcements");
       } catch (err) {
         console.log(err);
@@ -117,8 +117,8 @@ export default function AdminAddAssignment() {
               {categories.map((item, index) => (
                 <Picker.Item
                   key={index}
-                  label={item.label}
-                  value={item.value}
+                  label={item?.label}
+                  value={item?.value}
                 />
               ))}
             </Picker>

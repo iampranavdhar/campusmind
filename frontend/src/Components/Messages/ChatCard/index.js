@@ -20,8 +20,8 @@ export default function ChatCard({
 
   useEffect(() => {
     if (chatroomDetails) {
-      chatroomDetails.members.map((member) => {
-        if (member !== user._id) {
+      chatroomDetails?.members?.map((member) => {
+        if (member !== user?._id) {
           setReceiverId(member);
         }
       });
@@ -30,7 +30,7 @@ export default function ChatCard({
 
   useEffect(() => {
     setReceiverDetails(
-      chatroomDetails.members.filter((member) => member._id !== user._id)[0]
+      chatroomDetails?.members?.filter((member) => member?._id !== user?._id)[0]
     );
   }, [receiverId]);
 
@@ -43,7 +43,7 @@ export default function ChatCard({
           username: `${receiverDetails?.user_full_name}`,
           rollNumber: `${receiverDetails?.user_identity}`,
           userImage: receiverDetails?.profile_image,
-          chatroomId: chatroomDetails._id,
+          chatroomId: chatroomDetails?._id,
         })
       }
     >
@@ -66,7 +66,7 @@ export default function ChatCard({
             </Text>
             <Text style={styles.chatCardLastMessageTime}>
               {moment(
-                chatroomDetails?.messages[chatroomDetails.messages.length - 1]
+                chatroomDetails?.messages[chatroomDetails?.messages?.length - 1]
                   ?.createdAt
               )?.format("hh:mm A")}
             </Text>
@@ -74,14 +74,15 @@ export default function ChatCard({
         )}
         <View style={styles.chatCardLastMessageDetails}>
           <Text style={styles.chatCardLastMessage}>
-            {!isSearchResult && chatroomDetails.messages
-              ? chatroomDetails?.messages[chatroomDetails.messages.length - 1]
+            {!isSearchResult && chatroomDetails?.messages
+              ? chatroomDetails?.messages[chatroomDetails?.messages?.length - 1]
                   ?.text?.length > 20
                 ? chatroomDetails?.messages[
                     chatroomDetails?.messages?.length - 1
                   ].text.substring(0, 20) + "..."
-                : chatroomDetails?.messages[chatroomDetails.messages.length - 1]
-                    ?.text
+                : chatroomDetails?.messages[
+                    chatroomDetails?.messages?.length - 1
+                  ]?.text
               : ""}
           </Text>
           {!isSearchResult && islastMessageSenderYou && messageViewed ? (

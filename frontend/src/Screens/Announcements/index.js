@@ -33,11 +33,11 @@ export default function Announcements() {
             return (
               <AnnouncementCard
                 key={index}
-                announcementCategoryColor={announcement.color}
-                announcementCategory={announcement.announcement_category}
-                announcementText={announcement.announcement}
-                announcementDate={announcement.createdAt}
-                announcementTime={announcement.createdAt}
+                announcementCategoryColor={announcement?.color}
+                announcementCategory={announcement?.announcement_category}
+                announcementText={announcement?.announcement}
+                announcementDate={announcement?.createdAt}
+                announcementTime={announcement?.createdAt}
               />
             );
           })}

@@ -11,15 +11,12 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
-import { MaterialIcons, Entypo, FontAwesome } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { Entypo, FontAwesome } from "@expo/vector-icons";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 export default function Login() {
-  const navigation = useNavigation();
-
   const [password, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -80,7 +77,7 @@ export default function Login() {
                 <Text style={styles.submitButtonText}>Submit</Text>
               </TouchableOpacity>
               <View style={styles.appName}>
-                <Text style={styles.appNameText}>Stuuniverse</Text>
+                <Text style={styles.appNameText}>Campus Mind</Text>
               </View>
             </View>
           </View>

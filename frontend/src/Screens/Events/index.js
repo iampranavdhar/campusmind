@@ -49,7 +49,6 @@ export function EventCard({ event }) {
   const descriptionStyle = {
     height: animation.interpolate({
       inputRange: [0, 1],
-      // outputrange is the height of the description
       outputRange: [0, 200],
     }),
     opacity: animation,
@@ -66,25 +65,6 @@ export function EventCard({ event }) {
     }
   };
 
-  // const shareEvent = async () => {
-  //   try {
-  //     const result = await Share.share({
-  //       message: `${event.event_title} | ${event.event_dateandtime} ${event.event_venue}`,
-  //     });
-  //     if (result.action === Share.sharedAction) {
-  //       if (result.activityType) {
-  //         // shared with activity type of result.activityType
-  //       } else {
-  //         // shared
-  //       }
-  //     } else if (result.action === Share.dismissedAction) {
-  //       // dismissed
-  //     }
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // };
-
   return (
     <View style={styles.eventCard}>
       {isAdmin && (
@@ -95,9 +75,6 @@ export function EventCard({ event }) {
           <MaterialIcons name="delete" size={24} color="white" />
         </TouchableOpacity>
       )}
-      {/* <TouchableOpacity style={styles.shareIcon} onPress={() => shareEvent()}>
-        <Entypo name="share" size={24} color="black" />
-      </TouchableOpacity> */}
       <TouchableOpacity onPress={toggleDescription} activeOpacity={0.9}>
         <View>
           <Image
@@ -122,18 +99,12 @@ export function EventCard({ event }) {
             borderBottomColor: "#e6e6e6",
           }}
         >
-          <Text style={styles.eventTitle}>{event.event_title}</Text>
-          {/* <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <FontAwesome5 name="users" size={24} color="black" />
-            <Text style={{ fontSize: 12, marginLeft: 5 }}>
-              {event.event_attendees_count}
-            </Text>
-          </View> */}
+          <Text style={styles.eventTitle}>{event?.event_title}</Text>
         </View>
         <View>
           <Text style={{ fontFamily: globals.normalText.fontFamily }}>
             {"Venue: "}
-            {event.event_venue}
+            {event?.event_venue}
           </Text>
         </View>
         <View
@@ -146,20 +117,20 @@ export function EventCard({ event }) {
         >
           <Text style={{ fontFamily: globals.normalText.fontFamily }}>
             {"Date: "}
-            {moment(event.event_dateandtime).format("MMMM Do YYYY")}
+            {moment(event?.event_dateandtime).format("MMMM Do YYYY")}
           </Text>
         </View>
         <Animated.View style={[eventCardStyles.description, descriptionStyle]}>
           <View style={{ marginTop: 10 }}>
             <Text style={{ fontFamily: globals.normalText.fontFamily }}>
-              {event.event_description}
+              {event?.event_description}
             </Text>
-            {event.event_register_link && (
+            {event?.event_register_link && (
               <TouchableOpacity
                 style={styles.registerButton}
                 onPress={() => {
-                  event.event_register_link != "" &&
-                    Linking.openURL(event.event_register_link);
+                  event?.event_register_link != "" &&
+                    Linking.openURL(event?.event_register_link);
                 }}
               >
                 <Text

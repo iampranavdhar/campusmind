@@ -95,8 +95,8 @@ export default function AdminAllSectionsScreen({ navigation, route }) {
         {sectionsData?.map((section, index) => (
           <SectionCard
             key={index}
-            sectionName={section.section_name}
-            section_id={section._id}
+            sectionName={section?.section_name}
+            section_id={section?._id}
           />
         ))}
       </View>

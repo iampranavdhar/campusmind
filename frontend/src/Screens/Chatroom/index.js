@@ -60,7 +60,6 @@ export default function Chatroom({ route }) {
   useEffect(() => {
     socket.current = io(API_KEY + "");
     socket.current.on("getMessage", (data) => {
-      // the message that is going to arrive in from the other user, so for that message sender id is other person
       setChatroomDetails((prev) => {
         return {
           ...prev,

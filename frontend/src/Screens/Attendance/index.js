@@ -1,10 +1,10 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from "react";
+import { View, Text } from "react-native";
 
 export default function Attendance() {
-    return (
-        <View>
-            <Text>Attendance</Text>
-        </View>
-    )
+  return (
+    <View>
+      <Text>Attendance</Text>
+    </View>
+  );
 }

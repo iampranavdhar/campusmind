@@ -23,16 +23,16 @@ export default function SemDetails({ route }) {
             {registeredCourses.map((course, index) => (
               <View key={index} style={styles.tableRow}>
                 <Text style={{ flex: 0.2, ...styles.tableRowText }}>
-                  {course.CourseCode}
+                  {course?.CourseCode}
                 </Text>
                 <Text style={{ flex: 0.4, ...styles.tableRowText }}>
-                  {course.CourseTitle}
+                  {course?.CourseTitle}
                 </Text>
                 <Text style={{ flex: 0.2, ...styles.tableRowText }}>
-                  {course.CourseCredits}
+                  {course?.CourseCredits}
                 </Text>
                 <Text style={{ flex: 0.2, ...styles.tableRowText }}>
-                  {course.CourseGrade}
+                  {course?.CourseGrade}
                 </Text>
               </View>
             ))}
