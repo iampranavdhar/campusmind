@@ -88,6 +88,7 @@ export const SearchResultChatCard = ({ chatCard }) => {
 export default function Messages() {
   const [searchChatName, setSearchChatName] = useState("");
   const user = useSelector((state) => state.user.userData);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [chartCards, setChartCards] = useState([]);
 
@@ -183,6 +184,7 @@ export default function Messages() {
                 messageViewed={true}
                 chatroomDetails={chatCard}
                 isSearchResult={false}
+                setisLoading={setIsLoading}
                 key={index}
               />
             ))

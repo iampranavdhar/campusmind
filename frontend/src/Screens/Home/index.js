@@ -258,6 +258,24 @@ export default function Home({ navigation }) {
           </View>
           <TouchableOpacity
             activeOpacity={0.8}
+            style={styles.placementsBanner}
+            onPress={() => navigation.navigate("Placements")}
+          >
+            <Image
+              style={styles.placementsBannerImage}
+              source={require("../../../assets/placementsImage.webp")}
+            />
+            <View style={styles.placementsBannerOverlay}></View>
+            <Text style={styles.placementsBannerText}>Placements</Text>
+            <Ionicons
+              name="ios-arrow-forward"
+              size={25}
+              color="white"
+              style={styles.placementsBannerIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.8}
             style={styles.galleryBanner}
             onPress={() => navigation.navigate("Gallery")}
           >
@@ -269,7 +287,7 @@ export default function Home({ navigation }) {
             <Text style={styles.galleryBannerText}>Gallery</Text>
             <Ionicons
               name="ios-arrow-forward"
-              size={30}
+              size={25}
               color="white"
               style={styles.galleryBannerIcon}
             />

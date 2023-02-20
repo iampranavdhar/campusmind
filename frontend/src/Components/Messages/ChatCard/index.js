@@ -34,14 +34,16 @@ export default function ChatCard({
     );
   }, [receiverId]);
 
+  console.log(receiverDetails, "chatroomDetails.members");
+
   return (
     <TouchableOpacity
       style={styles.chatCard}
       activeOpacity={0.8}
       onPress={() =>
         navigation.push("Chatroom", {
-          username: `${receiverDetails?.user_full_name}`,
-          rollNumber: `${receiverDetails?.user_identity}`,
+          username: receiverDetails?.user_full_name,
+          rollNumber: receiverDetails?.user_identity,
           userImage: receiverDetails?.profile_image,
           chatroomId: chatroomDetails?._id,
         })

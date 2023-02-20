@@ -36,6 +36,7 @@ import AdminAddStudent from "./src/Screens/Admin/AdminAddStudent";
 import AdminAllMembers from "./src/Screens/Admin/AdminAllMembers";
 import AdminGraduationYears from "./src/Screens/Admin/AdminSems";
 import Gallery from "./src/Screens/Gallery";
+import Placements from "./src/Screens/Placements";
 
 const MainStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -50,7 +51,7 @@ const headerStyle = {
   headerTintColor: "#fff",
   headerStyle: {
     backgroundColor: "#747dff",
-    height: 75,
+    height: 85,
   },
   headerTitleStyle: {
     fontFamily: globals.titleText.fontFamily,
@@ -311,6 +312,11 @@ export default Navigator = () => {
           <MainStack.Screen
             name="Gallery"
             component={Gallery}
+            options={headerStyle}
+          />
+          <MainStack.Screen
+            name="Placements"
+            component={Placements}
             options={headerStyle}
           />
           <MainStack.Screen

@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: globals.titleText.fontFamily,
     color: "#000",
+    textAlign: "center",
   },
   userBranch: {
     fontSize: 15,
