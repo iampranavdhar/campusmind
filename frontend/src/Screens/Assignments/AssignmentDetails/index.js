@@ -83,7 +83,7 @@ export default function AssignmentDetails({ route }) {
             );
           }
         })}
-        {assignment?.assignment_submissions.filter(
+        {assignment?.assignment_submissions?.filter(
           (submission) => submission?.user_id === user?._id
         ).length === 0 && (
           <TouchableOpacity

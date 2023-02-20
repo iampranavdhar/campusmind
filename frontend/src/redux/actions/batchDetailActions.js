@@ -67,6 +67,7 @@ export const get_timetable = async (dispatch, data) => {
     dispatch(getTimeTableSuccess(response.data));
   } catch (error) {
     dispatch(actionFailure(error.message));
+    console.log(error.message);
   }
 };
 

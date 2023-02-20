@@ -51,7 +51,11 @@ export default function ChatCard({
         <Image
           style={styles.chatImage}
           source={{
-            uri: `${receiverDetails?.profile_image}`,
+            uri: `${
+              receiverDetails?.profile_image
+                ? receiverDetails?.profile_image
+                : "https://dvyvvujm9h0uq.cloudfront.net/com/articles/1525891879-379720-warren-wong-242286-unsplashjpg.jpg"
+            }`,
           }}
           resizeMode={"cover"}
         ></Image>

@@ -102,9 +102,7 @@ export default function Home({ navigation }) {
       });
 
     responseListener.current =
-      Notifications.addNotificationResponseReceivedListener((response) => {
-        console.log(response);
-      });
+      Notifications.addNotificationResponseReceivedListener((response) => {});
 
     return () => {
       Notifications.removeNotificationSubscription(
@@ -129,7 +127,7 @@ export default function Home({ navigation }) {
                     ? "https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg"
                     : user?.profile_image,
               }}
-              onPress={() => navigation?.navigate("Profile")}
+              onPress={() => navigation?.navigate("ProfileScreen")}
             />
           </TouchableOpacity>
           {user?.isAdmin ? (

@@ -92,15 +92,15 @@ export default function Assignments({ route }) {
               return (
                 new Date(assignment?.assignment_duedateandtime) > new Date() &&
                 assignment?.assignment_submissions
-                  .map((submission) => submission?.user_id)
-                  .indexOf(user._id) === -1
+                  ?.map((submission) => submission?.user_id)
+                  ?.indexOf(user._id) === -1
               );
             } else if (selectedStatus === "Completed") {
               return (
                 new Date(assignment?.assignment_duedateandtime) < new Date() ||
                 assignment?.assignment_submissions
-                  .map((submission) => submission?.user_id)
-                  .indexOf(user._id) !== -1
+                  ?.map((submission) => submission?.user_id)
+                  ?.indexOf(user._id) !== -1
               );
             }
           })

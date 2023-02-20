@@ -20,7 +20,6 @@ export const login = async (dispatch, user) => {
       email: user.email,
       password: user.password,
     });
-    console.log(response, "ewfre");
     dispatch(loginSuccess(response.data));
   } catch (error) {
     await AsyncStorage.clear();
@@ -42,7 +41,6 @@ export const logout = async (dispatch, user, token) => {
       },
     });
     if (response.status === 200) {
-      console.log(response.data, "logout_response");
       dispatch(logoutSucess());
       await AsyncStorage.clear();
     } else {

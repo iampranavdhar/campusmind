@@ -12,7 +12,6 @@ export const sendPushToken = async (token, user_id, org_id) => {
         org_id: org_id,
       },
     });
-    console.log(response);
   } catch (error) {
     console.log(error);
   }

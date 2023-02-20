@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Login from "./src/Screens/Auth/Login";
@@ -31,9 +31,7 @@ import AdminAddEvent from "./src/Screens/Admin/AdminAddEvent";
 import AdminAddAnnouncement from "./src/Screens/Admin/AdminAddAnnouncement";
 import AdminAllCoursesScreen from "./src/Screens/Admin/AdminAllCoursesScreen";
 import { useSelector } from "react-redux";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ActivityIndicator } from "react-native";
-import { useState } from "react";
 import AdminAddStudent from "./src/Screens/Admin/AdminAddStudent";
 import AdminAllMembers from "./src/Screens/Admin/AdminAllMembers";
 import AdminGraduationYears from "./src/Screens/Admin/AdminSems";
@@ -46,14 +44,13 @@ const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 const MessagesStack = createStackNavigator();
 const TodoStack = createStackNavigator();
-const AssignmentsStack = createStackNavigator();
 
 const headerStyle = {
   headerShown: true,
   headerTintColor: "#fff",
   headerStyle: {
     backgroundColor: "#747dff",
-    height: 100,
+    height: 75,
   },
   headerTitleStyle: {
     fontFamily: globals.titleText.fontFamily,
@@ -122,7 +119,7 @@ const MainTabs = () => {
           bottom: 0,
           borderRadius: 2,
           overflow: "hidden",
-          height: 80,
+          height: 60,
           ...styles.shadow,
         },
       }}
@@ -135,7 +132,7 @@ const MainTabs = () => {
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Ionicons
                 name="ios-home-outline"
-                size={25}
+                size={20}
                 color={focused ? "#747dff" : "#545051"}
               />
               <Text style={{ color: focused ? "#747dff" : "#545051" }}>
@@ -153,7 +150,7 @@ const MainTabs = () => {
             <View style={{ alignItems: "center" }}>
               <MaterialCommunityIcons
                 name="message-processing-outline"
-                size={25}
+                size={20}
                 color={focused ? "#747dff" : "#545051"}
               />
               <Text style={{ color: focused ? "#747dff" : "#545051" }}>
@@ -171,7 +168,7 @@ const MainTabs = () => {
             <View style={{ alignItems: "center" }}>
               <Ionicons
                 name="clipboard-outline"
-                size={25}
+                size={20}
                 color={focused ? "#747dff" : "#545051"}
               />
               <Text style={{ color: focused ? "#747dff" : "#545051" }}>
@@ -189,7 +186,7 @@ const MainTabs = () => {
             <View style={{ alignItems: "center" }}>
               <FontAwesome5
                 name="user"
-                size={25}
+                size={20}
                 color={focused ? "#747dff" : "#545051"}
               />
               <Text style={{ color: focused ? "#747dff" : "#545051" }}>
@@ -233,7 +230,7 @@ export default Navigator = () => {
                   >
                     <Ionicons
                       name="ios-home-outline"
-                      size={25}
+                      size={20}
                       color={focused ? "#747dff" : "#545051"}
                     />
                     <Text style={{ color: focused ? "#747dff" : "#545051" }}>

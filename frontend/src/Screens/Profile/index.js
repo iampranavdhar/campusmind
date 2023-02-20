@@ -40,7 +40,7 @@ export default function Profile() {
               source={{
                 uri:
                   user?.profile_image === "" || null
-                    ? "https://dvyvvujm9h0uq.cloudfront.net/com/articles/1525891879-379720-warren-wong-242286-unsplashjpg.jpg"
+                    ? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                     : user?.profile_image,
               }}
               resizeMode={"cover"} // cover or contain its upto you view look

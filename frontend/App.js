@@ -1,15 +1,12 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import Navigator from "./Navigator";
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./src/redux/store/store";
 import { persistor } from "./src/redux/store/store";
-import { persistStore, persistReducer } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import { API_KEY } from "@env";
+import { StatusBar } from "expo-status-bar";
 
 const getFonts = () => {
   return Font.loadAsync({
@@ -30,6 +27,7 @@ export default function App() {
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
+          <StatusBar barStyle="dark-content" />
           <Navigator />
         </PersistGate>
       </Provider>
@@ -44,12 +42,3 @@ export default function App() {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#EBEFFF",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

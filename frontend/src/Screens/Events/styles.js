@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     top: 5,
     right: 5,
     zIndex: 500,
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     borderRadius: 100,
     backgroundColor: "red",
     justifyContent: "center",
@@ -50,14 +50,12 @@ export const styles = StyleSheet.create({
   },
   eventData: {
     padding: 10,
-    paddingBottom: 25,
     width: "100%",
   },
   eventTitle: {
     fontSize: 16,
     width: "80%",
     fontFamily: globals.titleText.fontFamily,
-    paddingBottom: 5,
     color: "#242424",
   },
   registerButton: {
