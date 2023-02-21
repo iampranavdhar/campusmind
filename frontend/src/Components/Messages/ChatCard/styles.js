@@ -6,9 +6,9 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff",
-    padding: 10,
+    padding: 5,
     borderRadius: 10,
-    marginTop: 10,
+    marginTop: 8,
   },
   chatImage: {
     width: 60,
@@ -45,6 +45,6 @@ export const styles = StyleSheet.create({
   },
   messageViewIcon: {
     color: "#7E7373",
-    fontSize: 18,
+    fontSize: 16,
   },
 });

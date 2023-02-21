@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -7,6 +7,9 @@ import { get_assignments } from "../../../redux/actions/batchDetailActions";
 import globals from "../../../../globalStyles/globals";
 import { useNavigation } from "@react-navigation/native";
 const { useSelector, useDispatch } = require("react-redux");
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export const AssignmentCard = ({
   subjectCode,
@@ -30,10 +33,24 @@ export const AssignmentCard = ({
           ...styles.assignmentCardCode,
         }}
       >
-        <Text style={styles.assignmentCardCodeText}>{subjectCode}</Text>
+        <Text
+          style={{
+            ...styles.assignmentCardCodeText,
+            fontSize: width * 0.03,
+          }}
+        >
+          {subjectCode}
+        </Text>
       </View>
       <View style={styles.assignmentCardBody}>
-        <Text style={styles.assignmentCardBodyText}>{assignmentTitle}</Text>
+        <Text
+          style={{
+            ...styles.assignmentCardBodyText,
+            fontSize: width * 0.033,
+          }}
+        >
+          {assignmentTitle}
+        </Text>
       </View>
     </TouchableOpacity>
   );

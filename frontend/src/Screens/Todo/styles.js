@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
     fontFamily: globals.normalText.fontFamily,
   },
   categoryTitle: {
-    fontSize: 20,
+    marginBottom: 10,
     fontFamily: globals.titleText.fontFamily,
   },
   progressBar: {

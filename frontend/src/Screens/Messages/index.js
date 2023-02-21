@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ChatCard from "../../Components/Messages/ChatCard";
@@ -9,6 +16,9 @@ import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { API_KEY } from "@env";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export const SearchResultChatCard = ({ chatCard }) => {
   const user = useSelector((state) => state.user.userData);
@@ -40,8 +50,8 @@ export const SearchResultChatCard = ({ chatCard }) => {
         )[0];
         if (receiverDetails) {
           navigation.push("Chatroom", {
-            username: `${receiverDetails?.user_full_name}`,
-            rollNumber: `${receiverDetails?.user_identity}`,
+            username: receiverDetails?.user_full_name,
+            rollNumber: receiverDetails?.user_identity,
             userImage: receiverDetails?.profile_image,
             chatroomId: res.data._id,
           });
@@ -62,21 +72,31 @@ export const SearchResultChatCard = ({ chatCard }) => {
         <Image
           style={styles.searchChatImage}
           source={{
-            uri: `${chatCard?.profile_image}`,
+            uri: chatCard?.profile_image,
           }}
           resizeMode={"cover"}
         ></Image>
       </View>
       <View style={styles.searchChatCardInfo}>
         <View style={styles.searchChatCardUserInfo}>
-          <Text style={styles.searchChatCardUsername}>
-            {chatCard?.user_full_name.length > 15
-              ? chatCard?.user_full_name.substring(0, 15) + "..."
+          <Text
+            style={{
+              ...styles.searchChatCardUsername,
+              fontSize: width * 0.04,
+            }}
+          >
+            {chatCard?.user_full_name.length > 22
+              ? chatCard?.user_full_name.substring(0, 22) + "..."
               : chatCard?.user_full_name}
           </Text>
         </View>
         <View style={styles.searchChatCardUserDetails}>
-          <Text style={styles.searchChatCardUserIdentity}>
+          <Text
+            style={{
+              ...styles.searchChatCardUserIdentity,
+              fontSize: width * 0.03,
+            }}
+          >
             {chatCard?.user_identity}
           </Text>
         </View>
@@ -151,15 +171,22 @@ export default function Messages() {
     <SafeAreaView>
       <View style={styles.messages}>
         <View style={styles.messagesTopBar}>
-          <Text style={styles.messagestopBarTitle}>Chats</Text>
+          <Text
+            style={{
+              ...styles.messagestopBarTitle,
+              fontSize: width * 0.05,
+            }}
+          >
+            Chats
+          </Text>
           <TouchableOpacity>
-            <Entypo name="add-user" size={25} style={styles.addUser} />
+            <Entypo name="add-user" size={20} style={styles.addUser} />
           </TouchableOpacity>
         </View>
         <View style={styles.searchBar}>
           <Ionicons
             name="ios-search"
-            size={25}
+            size={20}
             style={styles.searchIcon}
             color="black"
           />

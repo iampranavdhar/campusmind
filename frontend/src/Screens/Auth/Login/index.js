@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView,
+  Keyboard,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
@@ -34,10 +35,20 @@ export default function Login() {
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <KeyboardAvoidingView>
-          <View style={{ width: width, height: height }}>
+        <KeyboardAvoidingView behavior="padding">
+          <View
+            style={{ width: width, height: height }}
+            onPress={Keyboard.dismiss}
+          >
             <View>
-              <Text style={styles.welcomeText}>Hello Again!, Welcome Back</Text>
+              <Text
+                style={{
+                  ...styles.welcomeText,
+                  fontSize: width * 0.07,
+                }}
+              >
+                Hello Again!, Welcome Back
+              </Text>
             </View>
             <View
               style={{
@@ -52,12 +63,28 @@ export default function Login() {
                 source={require("../../../../assets/images/login.png")}
               />
             </View>
-            <View style={styles.loginFields}>
-              <Text style={styles.loginTitle}>Login</Text>
+            <View
+              style={{
+                ...styles.loginFields,
+                height: height * 0.55,
+                width: width,
+              }}
+            >
+              <Text
+                style={{
+                  ...styles.loginTitle,
+                  fontSize: width * 0.05,
+                }}
+              >
+                Login
+              </Text>
               <View style={styles.inputField}>
                 <MaterialIcons name="email" size={24} color="#8d8d8d" />
                 <TextInput
-                  style={styles.textInput}
+                  style={{
+                    ...styles.textInput,
+                    fontSize: width * 0.04,
+                  }}
                   placeholder="Email"
                   value={email}
                   onChangeText={(text) => setEmail(text)}
@@ -66,7 +93,10 @@ export default function Login() {
               <View style={styles.inputField}>
                 <Entypo name="key" size={24} color="#8d8d8d" />
                 <TextInput
-                  style={styles.textInput}
+                  style={{
+                    ...styles.textInput,
+                    fontSize: width * 0.04,
+                  }}
                   placeholder="Password"
                   secureTextEntry={true}
                   value={password}
@@ -77,8 +107,7 @@ export default function Login() {
                 <Text
                   style={{
                     color: "red",
-                    fontSize: 12,
-                    marginTop: 10,
+                    fontSize: width * 0.04,
                   }}
                 >
                   {isError ? "Invalid Email or Password" : ""}
@@ -87,12 +116,21 @@ export default function Login() {
               <TouchableOpacity
                 onPress={() => navigation.navigate("ResetPass")}
               >
-                <Text style={styles.passwordResettext}>
+                <Text
+                  style={{
+                    ...styles.passwordResettext,
+                    fontSize: width * 0.035,
+                  }}
+                >
                   Forget or Reset Password ?
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={styles.loginButton}
+                style={{
+                  ...styles.loginButton,
+                  width: width * 0.9,
+                  height: height * 0.06,
+                }}
                 onPress={handleLogin}
               >
                 <Text style={styles.loginButtonText}>Login</Text>
@@ -100,12 +138,17 @@ export default function Login() {
               <TouchableOpacity
                 onPress={() => navigation.navigate("RegisterUniversity")}
               >
-                <Text style={styles.registerText}>
+                <Text
+                  style={{
+                    ...styles.registerText,
+                    fontSize: width * 0.033,
+                  }}
+                >
                   Register Your University?{" "}
                 </Text>
               </TouchableOpacity>
               <View style={styles.appName}>
-                <Text style={styles.appNameText}>Stuuniverse</Text>
+                <Text style={styles.appNameText}>Campus Mind</Text>
               </View>
             </View>
           </View>

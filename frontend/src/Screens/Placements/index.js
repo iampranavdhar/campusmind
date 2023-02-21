@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Animated,
   StyleSheet,
+  Dimensions,
 } from "react-native";
 import React, { useState } from "react";
 import { styles } from "./styles";
@@ -13,6 +14,8 @@ import { styles } from "./styles";
 import { useSelector } from "react-redux";
 import globals from "../../../globalStyles/globals.js";
 import { MaterialIcons } from "@expo/vector-icons";
+
+
 
 const placementInfoCardStyles = StyleSheet.create({
   container: {
@@ -57,7 +60,7 @@ export const PlacementInfoCard = ({ placement }) => {
           placement.visiting_date.length +
           placement.visiting_time.length +
           placement.venue.length -
-          50,
+          120,
       ],
     }),
     opacity: animation,
@@ -141,7 +144,7 @@ export const PlacementInfoCard = ({ placement }) => {
           Visiting Time: {placement.visiting_time}
         </Text>
         {/* Delelte Course and Edit Course Icon */}
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             justifyContent: "flex-start",
@@ -159,7 +162,7 @@ export const PlacementInfoCard = ({ placement }) => {
           >
             <MaterialIcons name="delete" size={24} color="white" />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </Animated.View>
     </TouchableOpacity>
   );
@@ -233,7 +236,7 @@ export default function Placements() {
       venue: "Facebook Office, Bangalore",
     },
   ];
-  const { isAdmin } = useSelector((state) => state.user.userData);
+  // const { isAdmin } = useSelector((state) => state.user.userData);
   return (
     <View
       style={{
@@ -245,7 +248,7 @@ export default function Placements() {
           <PlacementInfoCard key={index} placement={placement} />
         ))}
       </ScrollView>
-      <View
+      {/* <View
         style={{
           width: "auto",
           position: "absolute",
@@ -265,7 +268,7 @@ export default function Placements() {
             <MaterialIcons name="add" size={45} color="white" />
           </TouchableOpacity>
         )}
-      </View>
+      </View> */}
     </View>
   );
 }

@@ -31,13 +31,21 @@ export const styles = StyleSheet.create({
     marginBottom: 25,
     marginTop: 5,
   },
+  assignmentDueDate: {
+    fontFamily: globals.normalText.fontFamily,
+  },
+  assignmentDueTime: {
+    fontFamily: globals.normalText.fontFamily,
+  },
+  submissionDetailsText: {
+    fontFamily: globals.titleText.fontFamily,
+  },
   submissionDetails: {
     flexDirection: "column",
     alignItems: "flex-start",
     marginVertical: 25,
   },
   uploadButton: {
-    paddingVertical: 10,
     paddingHorizontal: 20,
     borderWidth: 1,
     borderColor: "#0dc90a",

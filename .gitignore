@@ -5,3 +5,4 @@ campusmind_pemKey.pem
 /frontend/.env
 /frontend/.env.example
 /frontend/node_modules
+/frontend/google-services.json

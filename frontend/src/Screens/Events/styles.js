@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
   },
   eventCard: {
     marginHorizontal: 15,
-    marginVertical: 10,
+    marginTop: 10,
     marginBottom: 20,
     borderRadius: 10,
     backgroundColor: "#fff",

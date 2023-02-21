@@ -5,14 +5,13 @@ export const styles = StyleSheet.create({
   optionCard: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 15,
+    paddingVertical: 10,
     paddingHorizontal: 10,
     width: "98%",
     backgroundColor: "#E9E9E9",
     alignSelf: "center",
     borderRadius: 10,
     marginVertical: 3,
-    //shadow
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -23,7 +22,6 @@ export const styles = StyleSheet.create({
     elevation: 1,
   },
   optionCardTitle: {
-    fontSize: 16,
     fontFamily: globals.normalText.fontFamily,
   },
   arrowIcon: {

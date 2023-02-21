@@ -22,14 +22,12 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   classTimingsText: {
-    fontSize: 12,
     marginLeft: 5,
     paddingTop: 2,
     fontFamily: `${globals.titleText.fontFamily}`,
     color: "#988F8F",
   },
   className: {
-    fontSize: 16,
     fontFamily: `${globals.titleText.fontFamily}`,
   },
   classStatus: {
@@ -38,7 +36,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   classStatusText: {
-    fontSize: 12,
     fontFamily: `${globals.titleText.fontFamily}`,
     alignItems: "center",
     marginTop: 2,

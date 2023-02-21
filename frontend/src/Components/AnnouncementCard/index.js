@@ -1,7 +1,10 @@
 import moment from "moment";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 import { styles } from "./styles";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function AnnouncementCard({
   announcementCategory,
@@ -24,19 +27,49 @@ export default function AnnouncementCard({
   };
 
   return (
-    <View style={styles.announcementCard}>
-      <View style={{ alignItems: "baseline" }}>
+    <View
+      style={{
+        ...styles.announcementCard,
+        width: width * 0.9,
+      }}
+    >
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 10,
+        }}
+      >
+        <View style={{ alignItems: "baseline" }}>
+          <Text
+            style={{
+              backgroundColor: announcementCategoryColor,
+              ...styles.announcementCategory,
+              fontSize: width * 0.035,
+            }}
+          >
+            {announcementCategory}
+          </Text>
+        </View>
         <Text
           style={{
-            backgroundColor: announcementCategoryColor,
-            ...styles.announcementCategory,
+            ...styles.announcementTime,
+            fontSize: width * 0.03,
           }}
         >
-          {announcementCategory}
+          {timeago(announcementTime)}
         </Text>
       </View>
-      <Text style={styles.announcementText}>{announcementText}</Text>
-      <Text style={styles.announcementTime}>{timeago(announcementTime)}</Text>
+      <Text
+        style={{
+          ...styles.announcementText,
+          fontSize: width * 0.035,
+        }}
+      >
+        {announcementText}
+      </Text>
     </View>
   );
 }

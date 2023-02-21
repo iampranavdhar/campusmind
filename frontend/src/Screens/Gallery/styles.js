@@ -16,8 +16,7 @@ export const styles = StyleSheet.create({
   },
   imageCard: {
     marginHorizontal: 15,
-    marginVertical: 10,
-    marginBottom: 20,
+    marginVertical: 5,
     borderRadius: 10,
     backgroundColor: "#fff",
     shadowColor: "#000",
@@ -27,7 +26,7 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 1,
     overflow: "hidden",
   },
   galleryImage: {

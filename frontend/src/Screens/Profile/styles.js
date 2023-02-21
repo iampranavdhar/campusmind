@@ -24,8 +24,6 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
   },
   userImage: {
-    width: 200,
-    height: 200,
     borderRadius: 1500 / 2,
     overflow: "hidden",
     resizeMode: "cover",
@@ -67,7 +65,6 @@ export const styles = StyleSheet.create({
   },
   rollNumberIcon: {
     color: "#ef994b",
-    fontSize: 30,
     alignItems: "center",
     justifyContent: "center",
     marginRight: 5,
@@ -77,7 +74,6 @@ export const styles = StyleSheet.create({
     fontFamily: globals.titleText.fontFamily,
   },
   userInfoSubTitle: {
-    fontSize: 14,
     marginLeft: 25,
     color: "#988F8F",
   },

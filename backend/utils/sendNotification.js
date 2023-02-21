@@ -1,8 +1,15 @@
 import NotificationToken from "../models/NotificationToken.js";
 
+import admin from "firebase-admin";
+import service_account_file from "../google_service_account.json" assert { type: "json" };
+
+const newAdmin = admin.initializeApp({
+  credential: admin.credential.cert(service_account_file),
+  databaseURL: "https://campusmind-30beb.firebaseio.com",
+});
+
 // For Events and Announcements
 export const sendNotificationToAllUsers = async (data) => {
-  const expo_push_url = "https://exp.host/--/api/v2/push/send";
   try {
     const org_id = data?.org_id;
     const title = data?.title;
@@ -14,26 +21,18 @@ export const sendNotificationToAllUsers = async (data) => {
 
     if (notification) {
       notification.forEach(async (user) => {
-        if (token) {
-          user.tokens.forEach(async (token) => {
-            const body = {
-              to: token,
+        user.tokens.forEach(async (token) => {
+          const message = {
+            notification: {
               title: title,
               body: desc,
-              data: { extraData: "Some data" },
-            };
-            const response = await fetch(expo_push_url, {
-              method: "POST",
-              headers: {
-                Accept: "application/json",
-                "Accept-encoding": "gzip, deflate",
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(body),
-            });
-            const data = await response.json();
-          });
-        }
+            },
+            token: token,
+          };
+
+          const response = await newAdmin.messaging().send(message);
+          console.log(response);
+        });
       });
       return true;
     } else {
@@ -47,7 +46,6 @@ export const sendNotificationToAllUsers = async (data) => {
 
 // For chat messages
 export const sendNotificationToUser = async (data) => {
-  const expo_push_url = "https://exp.host/--/api/v2/push/send";
   try {
     const org_id = data?.org_id;
     const title = data?.title;
@@ -62,23 +60,16 @@ export const sendNotificationToUser = async (data) => {
     if (notification) {
       notification.tokens.forEach(async (token) => {
         if (token) {
-          const body = {
-            to: token,
-            title: title,
-            body: desc,
-            data: { extraData: "Some data" },
-          };
-          const response = await fetch(expo_push_url, {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Accept-encoding": "gzip, deflate",
-              "Content-Type": "application/json",
+          const message = {
+            notification: {
+              title: title,
+              body: desc,
             },
-            body: JSON.stringify(body),
-          });
-          const data = await response.json();
-          console.log(data);
+            token: token,
+          };
+
+          const response = await newAdmin.messaging().send(message);
+          console.log(response);
         }
       });
       return true;
@@ -93,7 +84,6 @@ export const sendNotificationToUser = async (data) => {
 
 //  For Assignments
 export const sendNotificationToAllUsersInClass = async (data) => {
-  const expo_push_url = "https://exp.host/--/api/v2/push/send";
   try {
     const org_id = data?.org_id;
     const title = data?.title;
@@ -113,23 +103,16 @@ export const sendNotificationToAllUsersInClass = async (data) => {
       notification.forEach(async (user) => {
         user.tokens.forEach(async (token) => {
           if (token) {
-            const body = {
-              to: token,
-              title: title,
-              body: desc,
-              data: { extraData: "Some data" },
-            };
-            const response = await fetch(expo_push_url, {
-              method: "POST",
-              headers: {
-                Accept: "application/json",
-                "Accept-encoding": "gzip, deflate",
-                "Content-Type": "application/json",
+            const message = {
+              notification: {
+                title: title,
+                body: desc,
               },
-              body: JSON.stringify(body),
-            });
-            const data = await response.json();
-            console.log(data);
+              token: token,
+            };
+
+            const response = await newAdmin.messaging().send(message);
+            console.log(response, "this_is_not");
           }
         });
       });

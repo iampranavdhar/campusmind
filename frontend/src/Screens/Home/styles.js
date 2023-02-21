@@ -26,7 +26,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 30,
   },
   welcomeMessageNameText: {
-    fontSize: 20,
     fontFamily: `${globals.titleText.fontFamily}`,
     color: "#000",
     marginBottom: 5,

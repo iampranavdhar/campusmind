@@ -33,11 +33,10 @@ export const styles = StyleSheet.create({
   assignmentCard: {
     width: "90%",
     backgroundColor: "#fff",
-    marginVertical: 10,
+    marginTop: 5,
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    //shadow
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -45,7 +44,7 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 2,
     flexDirection: "row",
     alignItems: "center",
     alignSelf: "center",

@@ -99,10 +99,22 @@ export function EventCard({ event }) {
             borderBottomColor: "#e6e6e6",
           }}
         >
-          <Text style={styles.eventTitle}>{event?.event_title}</Text>
+          <Text
+            style={{
+              ...styles.eventTitle,
+              fontSize: width * 0.038,
+            }}
+          >
+            {event?.event_title}
+          </Text>
         </View>
         <View>
-          <Text style={{ fontFamily: globals.normalText.fontFamily }}>
+          <Text
+            style={{
+              fontFamily: globals.normalText.fontFamily,
+              fontSize: width * 0.035,
+            }}
+          >
             {"Venue: "}
             {event?.event_venue}
           </Text>
@@ -112,7 +124,8 @@ export function EventCard({ event }) {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            paddingVertical: 5,
+            paddingTop: 5,
+            fontSize: width * 0.035,
           }}
         >
           <Text style={{ fontFamily: globals.normalText.fontFamily }}>

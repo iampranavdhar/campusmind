@@ -19,3 +19,4 @@ buck-out/
 
 # Bundle artifacts
 *.jsbundle
+android/app/google-services.json

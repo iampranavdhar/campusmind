@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-community/datetimepicker": "6.2.0",
+    "@react-native-firebase/app": "^17.3.0",
+    "@react-native-firebase/messaging": "^17.3.0",
     "@react-native-picker/picker": "2.4.2",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
@@ -19,7 +21,7 @@
     "add": "^2.0.6",
     "axios": "^0.24.0",
     "deprecated-react-native-prop-types": "^4.0.0",
-    "expo": "^46.0.0",
+    "expo": "~46.0.19",
     "expo-app-loading": "~2.1.0",
     "expo-device": "~4.3.0",
     "expo-image-picker": "~13.3.1",

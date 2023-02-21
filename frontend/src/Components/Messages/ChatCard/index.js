@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import { styles } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import moment from "moment";
 import { useNavigation } from "@react-navigation/native";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function ChatCard({
   islastMessageSenderYou,
@@ -38,7 +41,10 @@ export default function ChatCard({
 
   return (
     <TouchableOpacity
-      style={styles.chatCard}
+      style={{
+        ...styles.chatCard,
+        width: width * 0.9,
+      }}
       activeOpacity={0.8}
       onPress={() =>
         navigation.push("Chatroom", {
@@ -65,7 +71,12 @@ export default function ChatCard({
       <View style={styles.chatCardInfo}>
         {!isSearchResult && (
           <View style={styles.chatCardUserInfo}>
-            <Text style={styles.chatCardUsername}>
+            <Text
+              style={{
+                ...styles.chatCardUsername,
+                fontSize: width * 0.04,
+              }}
+            >
               {receiverDetails?.user_full_name.length > 15
                 ? receiverDetails?.user_full_name.substring(0, 15) + "..."
                 : receiverDetails?.user_full_name}
@@ -79,7 +90,12 @@ export default function ChatCard({
           </View>
         )}
         <View style={styles.chatCardLastMessageDetails}>
-          <Text style={styles.chatCardLastMessage}>
+          <Text
+            style={{
+              ...styles.chatCardLastMessage,
+              fontSize: width * 0.03,
+            }}
+          >
             {!isSearchResult && chatroomDetails?.messages
               ? chatroomDetails?.messages[chatroomDetails?.messages?.length - 1]
                   ?.text?.length > 20
@@ -94,14 +110,14 @@ export default function ChatCard({
           {!isSearchResult && islastMessageSenderYou && messageViewed ? (
             <Ionicons
               name="checkmark-done-sharp"
-              size={25}
+              size={20}
               style={styles.messageViewIcon}
               color="black"
             />
           ) : (
             <Ionicons
               name="checkmark-sharp"
-              size={25}
+              size={20}
               style={styles.messageViewIcon}
               color="black"
             />

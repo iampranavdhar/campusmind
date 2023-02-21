@@ -36,15 +36,23 @@ export function TodoCategoryCard({
     <View style={styles.todoCategoryCard}>
       <Text
         style={{
-          width: 180,
-          height: 50,
+          width: width * 0.2,
+          height: height * 0.03,
           color: color,
+          fontSize: width * 0.04,
           ...styles.numberOfTasksText,
         }}
       >
         {numberOfTasks} Tasks
       </Text>
-      <Text style={styles.categoryTitle}>{categoryTitle}</Text>
+      <Text
+        style={{
+          ...styles.categoryTitle,
+          fontSize: width * 0.04,
+        }}
+      >
+        {categoryTitle}
+      </Text>
       <View style={styles.progressBar}>
         <Animated.View
           style={
@@ -106,6 +114,7 @@ export const TodoTaskAccordion = ({ task_id, title, description, is_done }) => {
           style={{
             ...styles.taskText,
             textDecorationLine: is_done ? "line-through" : "none",
+            fontSize: width * 0.03,
           }}
         >
           {title}

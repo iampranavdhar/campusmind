@@ -9,10 +9,10 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     width: "90%",
-    minHeight: 120,
+    minHeight: 80,
     justifyContent: "space-between",
     alignSelf: "center",
-    marginTop: 15,
+    marginTop: 10,
   },
   announcementCategory: {
     fontSize: 14,
@@ -21,10 +21,8 @@ export const styles = StyleSheet.create({
     color: "#fff",
     borderRadius: 10,
     overflow: "hidden",
-    marginBottom: 5,
   },
   announcementText: {
-    fontSize: 16,
     fontFamily: globals.titleText.fontFamily,
     color: "#000",
   },

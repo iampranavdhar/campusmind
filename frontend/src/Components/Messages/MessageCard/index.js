@@ -1,7 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 import { styles } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function MessageCard({
   messageSent,
@@ -17,7 +20,14 @@ export default function MessageCard({
         ...styles.messageCard,
       }}
     >
-      <Text style={styles.messageText}>{messageText}</Text>
+      <Text
+        style={{
+          ...styles.messageText,
+          fontSize: width * 0.035,
+        }}
+      >
+        {messageText}
+      </Text>
       <Text style={styles.messageTime}>
         {messageTime}
         {messageSent &&

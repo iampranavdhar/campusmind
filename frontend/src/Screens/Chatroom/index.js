@@ -20,7 +20,9 @@ import moment from "moment";
 import { io } from "socket.io-client";
 import Toast from "../../Components/Toast/Toast";
 import { API_KEY } from "@env";
+
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function Chatroom({ route }) {
   const { username, rollNumber, userImage, chatroomId } = route.params;
@@ -135,27 +137,30 @@ export default function Chatroom({ route }) {
       >
         <View
           style={{
-            width: "100%",
-            height: 80,
-            paddingHorizontal: 20,
-            paddingVertical: 10,
-            justifyContent: "flex-start",
-            backgroundColor: "#fff",
-            flexDirection: "row",
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            shadowOpacity: 0.25,
-            shadowRadius: 3.84,
-            elevation: 5,
+            ...styles.topBar,
+            height: height * 0.09,
           }}
         >
           <Image source={{ uri: userImage }} style={styles.topBarImage} />
           <View style={styles.topBarUserInfo}>
-            <Text style={styles.topBarUserInfoName}>{username}</Text>
-            <Text style={styles.topBarUserInfoRollNumber}>{rollNumber}</Text>
+            <Text
+              style={{
+                ...styles.topBarUserInfoName,
+                fontSize: width * 0.044,
+              }}
+            >
+              {username.length > 20
+                ? username.substring(0, 20) + "..."
+                : username}
+            </Text>
+            <Text
+              style={{
+                ...styles.topBarUserInfoRollNumber,
+                fontSize: width * 0.03,
+              }}
+            >
+              {rollNumber}
+            </Text>
           </View>
         </View>
         <View

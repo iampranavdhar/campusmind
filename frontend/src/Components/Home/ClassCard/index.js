@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { styles } from "./styles";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function ClassCard({ classDetails }) {
   const [completedClass, setCompletedClass] = useState(false);
@@ -49,15 +52,30 @@ export default function ClassCard({ classDetails }) {
         ...styles.classCard,
         backgroundColor:
           classDetails?.class_name === "Lunch Break" ? "#F5F5F5" : "#e9e9e9",
+        width: width * 0.6,
       }}
     >
       <View style={styles.classTimings}>
         <FontAwesome5 name="clock" size={18} color="#988F8F" solid />
-        <Text style={styles.classTimingsText}>
+        <Text
+          style={{
+            ...styles.classTimingsText,
+            fontSize: width * 0.03,
+          }}
+        >
           {classDetails?.start_time} - {classDetails?.end_time}
         </Text>
       </View>
-      <Text style={styles.className}>{classDetails?.class_name}</Text>
+      <Text
+        style={{
+          ...styles.className,
+          fontSize: width * 0.04,
+        }}
+      >
+        {classDetails?.class_name.length > 20
+          ? classDetails?.class_name.slice(0, 20) + "..."
+          : classDetails?.class_name}
+      </Text>
       <View style={styles.classStatus}>
         {classDetails?.class_name === "Lunch Break" ? null : (
           <>
@@ -75,7 +93,6 @@ export default function ClassCard({ classDetails }) {
               }
               solid
             />
-
             <Text
               style={{
                 ...styles.classStatusText,
@@ -86,6 +103,7 @@ export default function ClassCard({ classDetails }) {
                   : upcomingClass
                   ? "#4F8BFF"
                   : "black",
+                fontSize: width * 0.03,
               }}
             >
               {ongoingClass ? "Ongoing Class" : null}
