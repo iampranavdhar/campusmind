@@ -108,14 +108,17 @@ router.post("/createmessage", async (req, res) => {
     )[0]._id;
 
     const response = await User.findOne({
-      org_id: req.body.org_id,
       _id: receiver_id,
+    });
+
+    const sender = await User.findOne({
+      _id: req.body.senderId,
     });
 
     if (
       await sendNotificationToUser({
-        org_id: req.body.org_id,
-        title: `New Message from ${response?.user_full_name}`,
+        org_id: response?.org_id, // anyway same org users are chatting
+        title: `New Message from ${sender?.user_full_name}`,
         body: req.body.text,
         user_id: receiver_id,
       })
