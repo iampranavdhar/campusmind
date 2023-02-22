@@ -113,7 +113,7 @@ const collectAssignmentsOnDate = async () => {
   );
 };
 
-cron.schedule("0 4 * * *", async () => {
+cron.schedule("0 */1 * * *", async () => {
   await collectAssignmentsOnDate();
 });
 
@@ -134,7 +134,7 @@ cron.schedule("*/30 * * * * *", async () => {
           org_id: assignment?.org_id,
           section_id: assignment?.section_id,
           title: "Assignment Due",
-          body: `Assignment ${assignment?.assignment_title} is due in 1 hour`,
+          body: `Assignment ${assignment.subject_code}-${assignment?.assignment_title} is due in 1 hour`,
         })
       ) {
         console.log("Notification Sent");

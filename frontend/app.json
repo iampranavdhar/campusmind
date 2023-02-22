@@ -23,8 +23,7 @@
         "foregroundImage": "./assets/app_logo.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.campusmind.comp",
-      "googleServicesFile": "./google-services.json"
+      "package": "com.campusmind.comp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

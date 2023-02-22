@@ -55,7 +55,7 @@ export const NotificationListener = async () => {
       });
 
     messaging().onMessage(async (remoteMessage) => {
-      Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+      console.log("A new FCM message arrived!", JSON.stringify(remoteMessage));
     });
   } catch (error) {
     console.log(error);
