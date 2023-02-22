@@ -7,6 +7,7 @@ export const userSlice = createSlice({
   initialState: {
     userData: null,
     todoData: null,
+    chatData: null,
     galleryData: null,
     userPushNotificationToken: null,
     accessToken: AsyncStorage.getItem("accessToken") || null,
@@ -60,6 +61,12 @@ export const userSlice = createSlice({
       state.errorMessage = "";
       state.galleryData = action.payload;
     },
+    getChatSuccess: (state, action) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.errorMessage = "";
+      state.chatData = action.payload;
+    },
     logoutSucess: (state) => {
       state.userData = null;
       state.accessToken = null;
@@ -79,4 +86,5 @@ export const {
   getTodoBoardSuccess,
   addPushNotificationToken,
   getGallerySuccess,
+  getChatSuccess,
 } = userSlice.actions;

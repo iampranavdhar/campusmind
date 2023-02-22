@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   feeStatusCard: {
+    width: "100%",
     backgroundColor: "#F24E1E",
     borderRadius: 10,
     padding: 20,

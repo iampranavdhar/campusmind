@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  ActivityIndicator,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -13,9 +14,10 @@ import ChatCard from "../../Components/Messages/ChatCard";
 import { styles } from "./styles";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { API_KEY } from "@env";
+import { get_chat_data } from "../../redux/actions/userActions";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -108,33 +110,19 @@ export const SearchResultChatCard = ({ chatCard }) => {
 export default function Messages() {
   const [searchChatName, setSearchChatName] = useState("");
   const user = useSelector((state) => state.user.userData);
+  const chatCards = useSelector((state) => state.user.chatData);
   const [isLoading, setIsLoading] = useState(false);
-
-  const [chartCards, setChartCards] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    setIsLoading(true);
     const getChatroomtiles = async () => {
       const data = {
         org_id: user?.org_id,
         user_id: user?._id,
       };
-      try {
-        const res = await axios(
-          {
-            method: "POST",
-            url: API_KEY + "api/chat/getchatrooms",
-            data: data,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        setChartCards(res?.data);
-      } catch (err) {
-        console.log(err);
-      }
+      await get_chat_data(dispatch, data);
+      setIsLoading(false);
     };
     getChatroomtiles();
   }, [user?._id]);
@@ -197,51 +185,67 @@ export default function Messages() {
             placeholder="Search for Chats"
           />
         </View>
-        <ScrollView
-          verticle
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 400 }}
-        >
-          {searchChatName === "" ||
-          searchChatName === null ||
-          searchChatName === undefined ? (
-            chartCards?.map((chatCard, index) => (
-              <ChatCard
-                islastMessageSenderYou={true}
-                messageViewed={true}
-                chatroomDetails={chatCard}
-                isSearchResult={false}
-                setisLoading={setIsLoading}
-                key={index}
-              />
-            ))
-          ) : (
-            <View>
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", marginVertical: 15 }}
-              >
-                All Users
-              </Text>
-              {allUsers
-                ?.filter((chatCard) => {
-                  if (
-                    (chatCard?.user_full_name
-                      ?.toLowerCase()
-                      ?.includes(searchChatName.toLowerCase()) ||
-                      chatCard?.user_identity
+        {isLoading ? (
+          <View
+            style={{
+              alignSelf: "center",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <ActivityIndicator size="large" color="#0000ff" />
+          </View>
+        ) : (
+          <ScrollView
+            verticle
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: 400 }}
+          >
+            {searchChatName === "" ||
+            searchChatName === null ||
+            searchChatName === undefined ? (
+              chatCards?.map((chatCard, index) => (
+                <ChatCard
+                  islastMessageSenderYou={true}
+                  messageViewed={true}
+                  chatroomDetails={chatCard}
+                  isSearchResult={false}
+                  setisLoading={setIsLoading}
+                  key={index}
+                />
+              ))
+            ) : (
+              <View>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "bold",
+                    marginVertical: 15,
+                  }}
+                >
+                  All Users
+                </Text>
+                {allUsers
+                  ?.filter((chatCard) => {
+                    if (
+                      (chatCard?.user_full_name
                         ?.toLowerCase()
-                        ?.includes(searchChatName.toLowerCase())) &&
-                    chatCard?._id !== user?._id
-                  ) {
-                    return chatCard;
-                  }
-                })
-                ?.map((chatCard, index) => (
-                  <SearchResultChatCard chatCard={chatCard} key={index} />
-                ))}
-            </View>
-          )}
-        </ScrollView>
+                        ?.includes(searchChatName.toLowerCase()) ||
+                        chatCard?.user_identity
+                          ?.toLowerCase()
+                          ?.includes(searchChatName.toLowerCase())) &&
+                      chatCard?._id !== user?._id
+                    ) {
+                      return chatCard;
+                    }
+                  })
+                  ?.map((chatCard, index) => (
+                    <SearchResultChatCard chatCard={chatCard} key={index} />
+                  ))}
+              </View>
+            )}
+          </ScrollView>
+        )}
       </View>
     </SafeAreaView>
   );

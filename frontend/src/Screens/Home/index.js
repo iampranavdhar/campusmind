@@ -31,6 +31,20 @@ export default function Home({ navigation }) {
   const [todaysTimetable, setTodaysTimetable] = useState([]);
   const dispatch = useDispatch();
 
+  // For Scrolling to the ongoing class
+  const ongoingClassRef = useRef(null);
+  const [ongoingClassCardNumber, setOngoingClassCardNumber] = useState(0);
+
+  useEffect(() => {
+    if (ongoingClassRef.current) {
+      ongoingClassRef.current.scrollTo({
+        x: ongoingClassCardNumber * width * 0.6,
+        y: 0,
+        animated: true,
+      });
+    }
+  }, [ongoingClassCardNumber]);
+
   const user = useSelector((state) => state.user.userData);
   const pushNotificationToken = useSelector(
     (state) => state.user.userPushNotificationToken
@@ -164,6 +178,7 @@ export default function Home({ navigation }) {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 style={styles.classCards}
+                ref={ongoingClassRef}
               >
                 {holidays
                   .map((holiday) => holiday.date)
@@ -172,7 +187,12 @@ export default function Home({ navigation }) {
                 ) : todaysTimetable?.day_classes?.length !== 0 &&
                   todaysTimetable !== undefined ? (
                   todaysTimetable?.day_classes?.map((classDetails, index) => (
-                    <ClassCard key={index} classDetails={classDetails} />
+                    <ClassCard
+                      key={index}
+                      classDetails={classDetails}
+                      cardNumber={index + 1}
+                      setOngoingClassCardNumber={setOngoingClassCardNumber}
+                    />
                   ))
                 ) : (
                   <HolidayCard />

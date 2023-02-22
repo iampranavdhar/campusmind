@@ -4,9 +4,12 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { styles } from "./styles";
 
 const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
 
-export default function ClassCard({ classDetails }) {
+export default function ClassCard({
+  classDetails,
+  cardNumber,
+  setOngoingClassCardNumber,
+}) {
   const [completedClass, setCompletedClass] = useState(false);
   const [ongoingClass, setOngoingClass] = useState(false);
   const [upcomingClass, setUpcomingClass] = useState(false);
@@ -39,6 +42,7 @@ export default function ClassCard({ classDetails }) {
 
     if (st < ct && ct < et) {
       setOngoingClass(true);
+      setOngoingClassCardNumber(cardNumber);
     } else if (ct > et) {
       setCompletedClass(true);
     } else if (ct < st) {

@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { styles } from "./styles";
+
+const width = Dimensions.get("window").width;
 
 export default function RegisteredCourses() {
   const acad = {
@@ -87,18 +89,38 @@ export default function RegisteredCourses() {
                         justifyContent: "space-between",
                       }}
                     >
-                      <Text style={styles.courseCodeText}>
+                      <Text
+                        style={{
+                          ...styles.courseCodeText,
+                          fontSize: width * 0.04,
+                        }}
+                      >
                         {course?.CourseCode}
                       </Text>
-                      <Text style={styles.courseCodeText}>
+                      <Text
+                        style={{
+                          ...styles.courseCodeText,
+                          fontSize: width * 0.04,
+                        }}
+                      >
                         {course?.CourseCredits} Credits
                       </Text>
                     </View>
-                    <Text style={styles.courseTitleText}>
+                    <Text
+                      style={{
+                        ...styles.courseTitleText,
+                        fontSize: width * 0.04,
+                      }}
+                    >
                       {course?.CourseTitle}
                     </Text>
                   </View>
-                  <Text style={styles.courseInstructorText}>
+                  <Text
+                    style={{
+                      ...styles.courseInstructorText,
+                      fontSize: width * 0.04,
+                    }}
+                  >
                     By {course?.CourseInstructor}
                   </Text>
                 </View>

@@ -8,6 +8,7 @@ import {
   logoutSucess,
   addPushNotificationToken,
   getGallerySuccess,
+  getChatSuccess,
 } from "../reducers/userReducer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { API_KEY } from "@env";
@@ -133,6 +134,26 @@ export const add_image_to_gallery = async (dispatch, data) => {
       }
     );
     dispatch(getGallerySuccess(response.data));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const get_chat_data = async (dispatch, data) => {
+  try {
+    const res = await axios(
+      {
+        method: "POST",
+        url: API_KEY + "api/chat/getchatrooms",
+        data: data,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    dispatch(getChatSuccess(res.data));
   } catch (error) {
     console.log(error);
   }

@@ -20,7 +20,10 @@ Show some ❤️ and 🌟 the repo to support the project
   - [Student Features](#student-features)
 - [Setup 🔥](#setup-)
   - [Frontend Setup 🍧](#frontend-setup-)
+    - [Troubleshooting](#troubleshooting)
   - [Backend Setup 🍿](#backend-setup-)
+  - [Releasing the app](#releasing-the-app)
+  - [FYI 📌](#fyi-)
 - [Technologies 🛠](#technologies-)
 - [Screenshots](#screenshots)
 - [References 💻](#references-)
@@ -38,15 +41,20 @@ Show some ❤️ and 🌟 the repo to support the project
 - Add an announcement to the students
 - See the list of students
 - Add Courses
+- Add the images to the gallery
 
 ### Student Features
 
-- See the list of assignments
+- To view the timetable for the day
+- See and submit the assignments
 - See the list of events
 - See the list of announcements
 - Get the details of the course
-- Get Notifications for the assignments and events
+- Get Notifications for the assignments,event and announcements
 - See the fee details
+- Message your friends and teachers in the university
+- Placement related details
+- Gallery of the university
 
 ## Setup 🔥
 
@@ -63,8 +71,37 @@ Show some ❤️ and 🌟 the repo to support the project
 2. Run `yarn` to install dependencies
 
 3. Create a `.env` file and create variables as mentioned in the `.env.example` with the values
+4. Set up a new project in firebase and get the `google-services.json` file and place it in the `android/app` directory and follow the instructions of firebase while generating the file [ For Notifications ]
 
-4. Run `yarn start` to start the application
+5. Run `yarn andorid` to start the application in android emulator
+
+#### Troubleshooting
+
+- If you are getting an error null is not an object error, then you react-native-webview package might be not installed properly. To fix this, run `yarn add react-native-webview` and then run `yarn android` again.
+- If you are facing the ViewPropTypes error, then might will be the react-native version problem. To fix this, run `yarn add deprecated-react-native-prop-types` and then go to `node_modules/react-native/index.js` replace from line 436 to four functions
+
+with this:
+
+```js
+// Deprecated Prop Types
+get ColorPropType(): $FlowFixMe {
+  return require('deprecated-react-native-prop-types').ColorPropType;
+},
+
+get EdgeInsetsPropType(): $FlowFixMe {
+  return require('deprecated-react-native-prop-types').EdgeInsetsPropType;
+},
+
+get PointPropType(): $FlowFixMe {
+  return require('deprecated-react-native-prop-types').PointPropType;
+},
+
+get ViewPropTypes(): $FlowFixMe {
+  return require('deprecated-react-native-prop-types').ViewPropTypes;
+},
+```
+
+- In case of any other error try deleting the .gradle folder from the andorid and then run `yarn android` again
 
 ### Backend Setup 🍿
 
@@ -78,10 +115,18 @@ Show some ❤️ and 🌟 the repo to support the project
 
 5. Run `nodemon server.js` to start the server [Should have installed nodemon globally]
 
+### Releasing the app
+
+1. Run `cd android && ./gradlew bundleRelease` to generate the release build of the app
+2. You are done with the release build of the app 🎉🥳
+
+### FYI 📌
+
+- The app is build using Expo and React Native and then ejected to use the native modules and better control over the app
+
 ## Technologies 🛠
 
 - ReactNative
-- Expo
 - NodeJs
 - ExpressJs
 - MongoDB Atlas
@@ -93,7 +138,8 @@ Show some ❤️ and 🌟 the repo to support the project
 ## References 💻
 
 - [NodeJs Documentation](https://nodejs.org/en/docs/)
-- [React Native(Expo) Documentation](https://docs.expo.dev/get-started/installation/)
+- [React Native Documentation](https://reactnative.dev/)
+- [React Native Firebase Cloud Messaging](https://rnfirebase.io/messaging/usage)
 
 ## Author 📝
 
