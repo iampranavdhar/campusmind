@@ -2,6 +2,7 @@ import express from "express";
 import Chatroom from "../models/Chat/ChatRoom.js";
 import Message from "../models/Chat/Message.js";
 import User from "../models/User.js";
+import { sendNotificationToUser } from "../utils/sendNotification.js";
 
 const router = express.Router();
 
@@ -96,6 +97,33 @@ router.post("/createmessage", async (req, res) => {
         },
       }
     );
+
+    // get the chatroom details based on the chatroom id
+    const chatroom = await Chatroom.findOne({
+      _id: req.body.chatroomId,
+    }).populate("messages");
+
+    const receiver_id = chatroom.members.filter(
+      (item) => item._id != req.body.senderId
+    )[0]._id;
+
+    const response = await User.findOne({
+      org_id: req.body.org_id,
+      _id: receiver_id,
+    });
+
+    if (
+      await sendNotificationToUser({
+        org_id: req.body.org_id,
+        title: `New Message from ${response?.user_full_name}`,
+        body: req.body.text,
+        user_id: receiver_id,
+      })
+    ) {
+      console.log("Notification Sent");
+    } else {
+      console.log("Notification Not Sent");
+    }
 
     res.status(200).json(savedMessage);
   } catch (err) {
