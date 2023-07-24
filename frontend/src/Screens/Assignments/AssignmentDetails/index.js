@@ -19,12 +19,16 @@ export default function AssignmentDetails({ route }) {
   const [submissionFiles, setSubmissionFiles] = React.useState([]);
 
   const handleSubmission = async () => {
-    await submit_assignment(dispatch, {
-      assignment_id: assignment._id,
-      user_id: user._id,
-      submission_files: submissionFiles,
-    });
+    if (moment(assignment?.assignment_duedateandtime).isBefore(moment())) {
+      await submit_assignment(dispatch, {
+        assignment_id: assignment._id,
+        user_id: user._id,
+        submission_files: submissionFiles,
+      });
+    }
   };
+
+  console.log(assignment, "assignmentDetails");
 
   return (
     <SafeAreaView>
@@ -82,17 +86,19 @@ export default function AssignmentDetails({ route }) {
         >
           {assignment?.assignment_description}
         </Text>
-        <TouchableOpacity
-          style={{
-            ...styles.uploadButton,
-            width: width * 0.3,
-            height: height * 0.05,
-            paddingVertical: height * 0.007,
-          }}
-        >
-          <Text style={styles.uploadButtonText}>UPLOAD</Text>
-          <MaterialIcons name="file-upload" size={24} color="#0dc90a" />
-        </TouchableOpacity>
+        {!moment(assignment?.assignment_duedateandtime).isBefore(moment()) && (
+          <TouchableOpacity
+            style={{
+              ...styles.uploadButton,
+              width: width * 0.3,
+              height: height * 0.05,
+              paddingVertical: height * 0.007,
+            }}
+          >
+            <Text style={styles.uploadButtonText}>UPLOAD</Text>
+            <MaterialIcons name="file-upload" size={24} color="#0dc90a" />
+          </TouchableOpacity>
+        )}
         {assignment?.assignment_submissions?.map((submission) => {
           if (submission?.user_id === user?._id) {
             return (
@@ -115,15 +121,16 @@ export default function AssignmentDetails({ route }) {
         })}
         {assignment?.assignment_submissions?.filter(
           (submission) => submission?.user_id === user?._id
-        ).length === 0 && (
-          <TouchableOpacity
-            style={styles.submitButton}
-            activeOpacity={0.8}
-            onPress={handleSubmission}
-          >
-            <Text style={styles.submitButtonText}>SUBMIT</Text>
-          </TouchableOpacity>
-        )}
+        ).length === 0 &&
+          !moment(assignment?.assignment_duedateandtime).isBefore(moment()) && (
+            <TouchableOpacity
+              style={styles.submitButton}
+              activeOpacity={0.8}
+              onPress={handleSubmission}
+            >
+              <Text style={styles.submitButtonText}>SUBMIT</Text>
+            </TouchableOpacity>
+          )}
       </View>
     </SafeAreaView>
   );
