@@ -1,6 +1,6 @@
 ## Campus Mind 📚
 
-A Univeristy Manager App to manage all the daily activities of the university. It is a mobile application built using React Native and Expo. It has a backend built using NodeJs and ExpressJs. The database used is MongoDB Atlas. The app is deployed on AWS EC2.
+A Univeristy Manager App to manage all the daily activities of the university. It is a mobile application built using React Native and Expo. It has a backend built using NodeJs and ExpressJs. The database used is MongoDB Atlas. The app is deployed on Azure. The images are stored in Cloudinary. The app is built for both Android and iOS.
 
 ![1](https://user-images.githubusercontent.com/73348574/220139423-ff6520dd-1675-456a-9eb5-151d4e61c22c.png)
 
@@ -18,6 +18,7 @@ Show some ❤️ and 🌟 the repo to support the project
 - [Features Of Campus Mind 🚀](#features-of-campus-mind-)
   - [Admin Features](#admin-features)
   - [Student Features](#student-features)
+  - [Disclaimer](#disclaimer)
 - [Setup 🔥](#setup-)
   - [Frontend Setup 🍧](#frontend-setup-)
     - [Troubleshooting](#troubleshooting)
@@ -55,6 +56,13 @@ Show some ❤️ and 🌟 the repo to support the project
 - Message your friends and teachers in the university
 - Placement related details
 - Gallery of the university
+
+### Disclaimer
+
+- The app is still under development and many features are yet to be added. And some screens are just for the UI purpose and are not connected to the backend yet. You are free to contribute to this project and make it better. If you want to contribute to this project, please read the [Contributing Guidelines](CONTRIBUTING.md) first.
+- Feel free to raise an issue if you find any bug in the application
+- Feel free to raise a feature request if you think any feature is missing in the application
+- Feel free to fork the repository and make your own changes if you want to make the app better and use it for your own purpose
 
 ## Setup 🔥
 
@@ -117,8 +125,10 @@ get ViewPropTypes(): $FlowFixMe {
 
 ### Releasing the app
 
-1. Run `cd android && ./gradlew bundleRelease` to generate the release build of the app
+1. Run `cd android && ./gradlew assembleRelease` to generate the release build of the app
 2. You are done with the release build of the app 🎉🥳
+3. Download your apk from `android/app/build/outputs/apk/release` which will be named as `app-release.apk`
+4. Great! Now you can distribute this apk to anyone and they can install it on their android device, now its time to celebrate 🎉🎉. Please consider giving a star to this repo if you want me to make more such projects 😁
 
 ### FYI 📌
 
@@ -132,6 +142,7 @@ get ViewPropTypes(): $FlowFixMe {
 - MongoDB Atlas
 - Cloudinary
 - AWS EC2
+- Azure
 
 ## Screenshots
 
