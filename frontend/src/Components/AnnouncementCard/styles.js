@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#e9e9e9",
     borderRadius: 10,
     overflow: "hidden",
-    paddingVertical: 10,
+    paddingVertical: 20,
     paddingHorizontal: 10,
     width: "90%",
     minHeight: 80,

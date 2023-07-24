@@ -21,6 +21,8 @@ export default function ChatCard({
   const [receiverId, setReceiverId] = useState(null);
   const [receiverDetails, setReceiverDetails] = useState(null);
 
+  console.log(chatroomDetails, "chatroomDetails");
+
   useEffect(() => {
     if (chatroomDetails) {
       chatroomDetails?.members?.map((member) => {

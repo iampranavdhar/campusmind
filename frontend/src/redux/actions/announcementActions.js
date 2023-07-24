@@ -11,6 +11,7 @@ import { API_KEY } from "@env";
 const accessToken = AsyncStorage.getItem("accessToken");
 
 export const get_announcements = async (dispatch, org_id) => {
+  console.log(org_id, "org_id");
   try {
     dispatch(actionStart());
     const response = await axios.get(
@@ -21,6 +22,7 @@ export const get_announcements = async (dispatch, org_id) => {
         },
       }
     );
+    console.log(response.data, "announcements");
     dispatch(getAnnouncementsSuccess(response.data));
   } catch (error) {
     dispatch(actionFailure(error.message));

@@ -15,12 +15,14 @@ import { API_KEY } from "@env";
 const accessToken = AsyncStorage.getItem("accessToken");
 
 export const login = async (dispatch, user) => {
+  console.log(user);
   dispatch(actionStart());
   try {
     const response = await axios.post(API_KEY + "api/auth/login", {
       email: user.email,
       password: user.password,
     });
+    console.log(response.data);
     dispatch(loginSuccess(response.data));
   } catch (error) {
     await AsyncStorage.clear();
@@ -140,6 +142,7 @@ export const add_image_to_gallery = async (dispatch, data) => {
 };
 
 export const get_chat_data = async (dispatch, data) => {
+  console.log(data, "data");
   try {
     const res = await axios(
       {
@@ -153,6 +156,7 @@ export const get_chat_data = async (dispatch, data) => {
         },
       }
     );
+    console.log(res.data, "chatrooms");
     dispatch(getChatSuccess(res.data));
   } catch (error) {
     console.log(error);

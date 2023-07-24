@@ -90,7 +90,7 @@ export default function ClassCard({
                 ongoingClass
                   ? "#FF605C"
                   : completedClass
-                  ? "#FFB82E"
+                  ? "#4b3f72"
                   : upcomingClass
                   ? "#4F8BFF"
                   : "black"
@@ -103,7 +103,7 @@ export default function ClassCard({
                 color: ongoingClass
                   ? "#FF605C"
                   : completedClass
-                  ? "#FFB82E"
+                  ? "#4b3f72"
                   : upcomingClass
                   ? "#4F8BFF"
                   : "black",

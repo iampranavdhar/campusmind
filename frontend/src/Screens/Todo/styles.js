@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
   todoTopBar: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 20,
+    paddingVertical: 5,
+    marginBottom: 10,
     alignItems: "center",
   },
   todoTitle: {
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   todoSubtitle: {
     fontSize: 20,
-    marginBottom: 20,
+    marginBottom: 0,
     fontFamily: globals.normalText.fontFamily,
   },
   todoIcon: {
@@ -26,6 +27,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F0E7E7",
     color: "#F24E1E",
     borderRadius: 10,
+    marginBottom: 10,
     overflow: "hidden",
   },
   todoCategoryCard: {
@@ -35,7 +37,9 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     overflow: "hidden",
     backgroundColor: "#FFF",
-    marginBottom: 10,
+    minWidth: 150,
+    minHeight: 150,
+    marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

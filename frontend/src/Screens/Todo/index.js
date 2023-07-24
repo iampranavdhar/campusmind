@@ -32,6 +32,7 @@ export function TodoCategoryCard({
   color,
   numberOfCompletedTasks,
 }) {
+  console.log(numberOfCompletedTasks, numberOfTasks, color, categoryTitle);
   return (
     <View style={styles.todoCategoryCard}>
       <Text
@@ -303,7 +304,7 @@ export default function Todo() {
               </TouchableOpacity>
             ))}
         </ScrollView>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <View style={styles.todoTopBar}>
           <Text style={styles.todoSubtitle}>
             {selectedCategory?.category_name} Tasks
           </Text>

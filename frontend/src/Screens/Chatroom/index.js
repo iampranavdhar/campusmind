@@ -149,8 +149,8 @@ export default function Chatroom({ route }) {
                 fontSize: width * 0.044,
               }}
             >
-              {username.length > 20
-                ? username.substring(0, 20) + "..."
+              {username?.length > 20
+                ? username?.substring(0, 20) + "..."
                 : username}
             </Text>
             <Text

@@ -15,10 +15,7 @@ import HolidayCard from "../../Components/HolidayCard";
 import { useSelector, useDispatch } from "react-redux";
 import { get_timetable } from "../../redux/actions/batchDetailActions";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import {
-  add_push_notification_token,
-  logout,
-} from "../../redux/actions/userActions";
+import { logout } from "../../redux/actions/userActions";
 import {
   GetFCMToken,
   NotificationListener,

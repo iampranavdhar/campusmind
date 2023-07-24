@@ -53,6 +53,7 @@ export const get_sections = async (dispatch, data) => {
 };
 
 export const get_timetable = async (dispatch, data) => {
+  console.log(data, "data");
   try {
     dispatch(actionStart());
     const response = await axios.post(
@@ -64,6 +65,7 @@ export const get_timetable = async (dispatch, data) => {
         },
       }
     );
+    console.log(response.data, "timetable");
     dispatch(getTimeTableSuccess(response.data));
   } catch (error) {
     dispatch(actionFailure(error.message));

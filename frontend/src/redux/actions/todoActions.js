@@ -13,6 +13,7 @@ import { API_KEY } from "@env";
 const accessToken = AsyncStorage.getItem("accessToken");
 
 export const get_todo_data = async (dispatch, user) => {
+  console.log(user, "user");
   try {
     dispatch(actionStart());
     const response = await axios.get(
@@ -23,6 +24,7 @@ export const get_todo_data = async (dispatch, user) => {
         },
       }
     );
+    console.log(response.data, "todoData");
     dispatch(getTodoBoardSuccess(response.data));
   } catch (error) {
     dispatch(actionFailure(error.message));

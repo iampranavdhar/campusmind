@@ -135,6 +135,7 @@ export default function Messages() {
         org_id: user?.org_id,
       };
       try {
+        console.log(data);
         const res = await axios(
           {
             method: "POST",
