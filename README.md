@@ -2,11 +2,11 @@
 
 A Univeristy Manager App to manage all the daily activities of the university. It is a mobile application built using React Native and Expo. It has a backend built using NodeJs and ExpressJs. The database used is MongoDB Atlas. The app is deployed on Azure. The images are stored in Cloudinary. The app is built for both Android and iOS.
 
-![1](https://user-images.githubusercontent.com/73348574/220139423-ff6520dd-1675-456a-9eb5-151d4e61c22c.png)
+![1](https://github.com/iampranavdhar/campusmind/assets/73348574/b86ed066-3e82-4b21-9c64-98b1ac574845)
 
 ### Video Demo
 
-[Demo Link]()
+[Complete Product Demo Link](https://drive.google.com/file/d/1pVJ-ipJoDPblyFOfCzTR_dOxIAInM77b/view?usp=drive_link)
 
 Show some ❤️ and 🌟 the repo to support the project
 
@@ -145,6 +145,11 @@ get ViewPropTypes(): $FlowFixMe {
 - Azure
 
 ## Screenshots
+
+![2](https://github.com/iampranavdhar/campusmind/assets/73348574/f5a4547e-d89f-4d87-8cda-a0f5b0f8f1b2)
+![3](https://github.com/iampranavdhar/campusmind/assets/73348574/7af98ec3-5e07-4777-96cf-24a13d2756c9)
+![4](https://github.com/iampranavdhar/campusmind/assets/73348574/2733e783-3770-4fc1-b56f-019b7526bc7f)
+![5](https://github.com/iampranavdhar/campusmind/assets/73348574/f60602e1-df80-4b2a-abf7-090b802f2b7d)
 
 ## References 💻
 
