@@ -4,7 +4,7 @@ A Univeristy Manager App to manage all the daily activities of the university. I
 
 ![1](assets/banner.png)
 
-### Video Demo
+### Video Demo 🎥
 
 [Complete Product Demo Link](https://drive.google.com/file/d/1pVJ-ipJoDPblyFOfCzTR_dOxIAInM77b/view?usp=drive_link)
 
@@ -13,20 +13,20 @@ Show some ❤️ and 🌟 the repo to support the project
 ## Index ✏️
 
 - [Campus Mind 📚](#campus-mind-)
-  - [Video Demo](#video-demo)
+  - [Video Demo 🎥](#video-demo-)
 - [Index ✏️](#index-️)
 - [Features Of Campus Mind 🚀](#features-of-campus-mind-)
-  - [Admin Features](#admin-features)
-  - [Student Features](#student-features)
-  - [Disclaimer](#disclaimer)
+  - [Admin Features 👨‍💼](#admin-features-)
+  - [Student Features 👨‍🎓](#student-features-)
+  - [Disclaimer ⚠️](#disclaimer-️)
 - [Setup 🔥](#setup-)
   - [Frontend Setup 🍧](#frontend-setup-)
-    - [Troubleshooting](#troubleshooting)
+    - [Troubleshooting ✅](#troubleshooting-)
   - [Backend Setup 🍿](#backend-setup-)
-  - [Releasing the app](#releasing-the-app)
+  - [Releasing the app 🚀](#releasing-the-app-)
   - [FYI 📌](#fyi-)
 - [Technologies 🛠](#technologies-)
-- [Screenshots](#screenshots)
+- [Screenshots 🌄](#screenshots-)
 - [References 💻](#references-)
 - [Author 📝](#author-)
 - [Connect Me On 🌍](#connect-me-on-)
@@ -34,7 +34,7 @@ Show some ❤️ and 🌟 the repo to support the project
 
 ## Features Of Campus Mind 🚀
 
-### Admin Features
+### Admin Features 👨‍💼
 
 - Add a new student
 - Add Assignments to the students with a deadline
@@ -44,7 +44,7 @@ Show some ❤️ and 🌟 the repo to support the project
 - Add Courses
 - Add the images to the gallery
 
-### Student Features
+### Student Features 👨‍🎓
 
 - To view the timetable for the day
 - See and submit the assignments
@@ -57,7 +57,7 @@ Show some ❤️ and 🌟 the repo to support the project
 - Placement related details
 - Gallery of the university
 
-### Disclaimer
+### Disclaimer ⚠️
 
 - The app is still under development and many features are yet to be added. And some screens are just for the UI purpose and are not connected to the backend yet. You are free to contribute to this project and make it better. If you want to contribute to this project, please read the [Contributing Guidelines](CONTRIBUTING.md) first.
 - Feel free to raise an issue if you find any bug in the application
@@ -83,7 +83,7 @@ Show some ❤️ and 🌟 the repo to support the project
 
 5. Run `yarn andorid` to start the application in android emulator
 
-#### Troubleshooting
+#### Troubleshooting ✅
 
 - If you are getting an error null is not an object error, then you react-native-webview package might be not installed properly. To fix this, run `yarn add react-native-webview` and then run `yarn android` again.
 - If you are facing the ViewPropTypes error, then might will be the react-native version problem. To fix this, run `yarn add deprecated-react-native-prop-types` and then go to `node_modules/react-native/index.js` replace from line 436 to four functions
@@ -123,7 +123,7 @@ get ViewPropTypes(): $FlowFixMe {
 
 5. Run `nodemon server.js` to start the server [Should have installed nodemon globally]
 
-### Releasing the app
+### Releasing the app 🚀
 
 1. Run `cd android && ./gradlew assembleRelease` to generate the release build of the app
 2. You are done with the release build of the app 🎉🥳
@@ -144,7 +144,7 @@ get ViewPropTypes(): $FlowFixMe {
 - AWS EC2
 - Azure
 
-## Screenshots
+## Screenshots 🌄
 
 ![2](assets/2.png)
 ![3](assets/3.png)
