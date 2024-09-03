@@ -1,6 +1,6 @@
 ## Campus Mind 📚
 
-A Univeristy Manager App to manage all the daily activities of the university. It is a mobile application built using React Native and Expo. It has a backend built using NodeJs and ExpressJs. The database used is MongoDB Atlas. The app is deployed on Azure. The images are stored in Cloudinary. The app is built for both Android and iOS.
+A University Manager App to manage all the daily activities of the university. It is a mobile application built using React Native and Expo. It has a backend built using NodeJs and ExpressJs. The database used is MongoDB Atlas. The app is deployed on Azure. The images are stored in Cloudinary. The app is built for both Android and iOS.
 
 ![1](assets/banner.png)
 
